@@ -19,7 +19,12 @@ defmodule Chroner.CRUD do
           @doc "Creates #{resource} resource."
           def unquote(:"#{resource}_create")(client, params) do
             with {:ok, %Response{body: data}} <-
-                   Request.post(client, "/#{unquote(resource)}", params),
+                   Request.post(
+                     client,
+                     "/#{unquote(resource)}",
+                     params,
+                     Request.upsert_headers()
+                   ),
                  do: {:ok, Response.resource(unquote(struct), data)}
           end
         end
@@ -67,7 +72,12 @@ defmodule Chroner.CRUD do
           @doc "Updates existing #{resource} resources."
           def unquote(:"#{resource}_partial_update")(client, id, params) do
             with {:ok, %Response{body: data}} <-
-                   Request.patch(client, "/#{unquote(resource)}/#{id}", params),
+                   Request.patch(
+                     client,
+                     "/#{unquote(resource)}/#{id}",
+                     params,
+                     Request.upsert_headers()
+                   ),
                  do: {:ok, Response.resource(unquote(struct), data)}
           end
         end
@@ -93,7 +103,12 @@ defmodule Chroner.CRUD do
           @doc "Updates existing #{resource} resources."
           def unquote(:"#{resource}_update")(client, id, params) do
             with {:ok, %Response{body: data}} <-
-                   Request.put(client, "/#{unquote(resource)}/#{id}", params),
+                   Request.put(
+                     client,
+                     "/#{unquote(resource)}/#{id}",
+                     params,
+                     Request.upsert_headers()
+                   ),
                  do: {:ok, Response.resource(unquote(struct), data)}
           end
         end

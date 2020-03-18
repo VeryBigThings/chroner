@@ -2,15 +2,33 @@ defmodule Chroner.Clinical.AppointmentProfile do
   @derive [Poison.Encoder]
 
   @type create_params :: %{
-          doctor: integer()
+          required(:color) => String.t(),
+          optional(:doctor) => integer(),
+          optional(:duration) => integer(),
+          required(:name) => String.t(),
+          optional(:reason) => String.t(),
+          required(:online_scheduling) => boolean(),
+          optional(:duration) => integer()
         }
 
   @type partial_update_params :: %{
-          optional(:doctor) => integer()
+          optional(:color) => String.t(),
+          optional(:doctor) => integer(),
+          optional(:duration) => integer(),
+          optional(:name) => String.t(),
+          optional(:reason) => String.t(),
+          optional(:online_scheduling) => boolean(),
+          optional(:duration) => integer()
         }
 
   @type update_params :: %{
-          optional(:doctor) => integer()
+          optional(:color) => String.t(),
+          optional(:doctor) => integer(),
+          optional(:duration) => integer(),
+          optional(:name) => String.t(),
+          optional(:reason) => String.t(),
+          optional(:online_scheduling) => boolean(),
+          optional(:duration) => integer()
         }
 
   @type t :: %__MODULE__{

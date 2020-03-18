@@ -55,17 +55,17 @@ defmodule Chroner.Clinical.Patient do
         }
 
   @type create_params :: %{
-          chart_id: String.t(),
-          date_of_birth: String.t(),
-          doctor: integer(),
-          email: String.t(),
-          ethnicity: String.t(),
-          first_name: String.t(),
-          gender: String.t(),
-          last_name: String.t(),
-          preferred_language: String.t(),
-          race: String.t(),
-          since: String.t()
+          optional(:chart_id) => String.t(),
+          optional(:date_of_birth) => String.t(),
+          required(:doctor) => integer(),
+          optional(:email) => String.t(),
+          optional(:ethnicity) => String.t(),
+          optional(:first_name) => String.t(),
+          optional(:gender) => String.t(),
+          optional(:last_name) => String.t(),
+          optional(:preferred_language) => String.t(),
+          optional(:race) => String.t(),
+          optional(:since) => String.t()
         }
 
   @type insurance :: %{
@@ -94,6 +94,8 @@ defmodule Chroner.Clinical.Patient do
           subscriber_suffix: String.t(),
           subscriber_zip_code: String.t()
         }
+
+  @type gender :: :Male | :Female | :Other | :UNK | :ASKU
 
   @type patient_flag :: %{
           archived: boolean(),
@@ -164,7 +166,7 @@ defmodule Chroner.Clinical.Patient do
           employer: String.t(),
           ethnicity: String.t(),
           first_name: String.t(),
-          gender: String.t(),
+          gender: gender,
           home_phone: String.t(),
           id: integer(),
           last_name: String.t(),

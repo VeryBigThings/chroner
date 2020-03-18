@@ -8,7 +8,7 @@ defmodule Chroner do
   # Authentication
   # --------------------------------------------------------------------
 
-  defdelegate client(access_token), to: Authorization
+  defdelegate client(opts), to: Authorization
 
   # --------------------------------------------------------------------
   # Administrative
