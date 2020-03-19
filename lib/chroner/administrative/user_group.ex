@@ -20,4 +20,6 @@ defmodule Chroner.Administrative.UserGroup do
     :practice_group,
     :updated_at
   ]
+
+  def plural, do: "user_groups"
 end

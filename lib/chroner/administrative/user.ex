@@ -55,4 +55,6 @@ defmodule Chroner.Administrative.User do
     :practice_group,
     :username
   ]
+
+  def plural, do: "users"
 end

@@ -44,4 +44,6 @@ defmodule Chroner.Administrative.Doctor do
     :timezone,
     :website
   ]
+
+  def plural, do: "doctors"
 end

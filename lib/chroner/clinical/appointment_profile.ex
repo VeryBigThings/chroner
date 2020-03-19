@@ -22,13 +22,13 @@ defmodule Chroner.Clinical.AppointmentProfile do
         }
 
   @type update_params :: %{
-          optional(:color) => String.t(),
-          optional(:doctor) => integer(),
-          optional(:duration) => integer(),
-          optional(:name) => String.t(),
-          optional(:reason) => String.t(),
-          optional(:online_scheduling) => boolean(),
-          optional(:duration) => integer()
+          required(:color) => String.t(),
+          required(:doctor) => integer(),
+          required(:duration) => integer(),
+          required(:name) => String.t(),
+          required(:reason) => String.t(),
+          required(:online_scheduling) => boolean(),
+          required(:duration) => integer()
         }
 
   @type t :: %__MODULE__{
@@ -54,4 +54,6 @@ defmodule Chroner.Clinical.AppointmentProfile do
     :reason,
     :sort_order
   ]
+
+  def plural, do: "appointment_profiles"
 end

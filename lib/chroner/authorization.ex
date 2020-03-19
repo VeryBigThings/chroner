@@ -38,8 +38,10 @@ defmodule Chroner.Authorization do
   # Strategy callbacks
   # --------------------------------------------------------------------
 
+  @impl OAuth2.Strategy
   def authorize_url(client, params), do: OAuth2.Strategy.AuthCode.authorize_url(client, params)
 
+  @impl OAuth2.Strategy
   def get_token(client, params, headers) do
     client
     |> put_param(:client_secret, client.client_secret)

@@ -109,17 +109,17 @@ defmodule Chroner.Clinical.Patient do
         }
 
   @type update_params :: %{
-          optional(:chart_id) => String.t(),
-          optional(:date_of_birth) => String.t(),
-          optional(:doctor) => integer(),
-          optional(:email) => String.t(),
-          optional(:ethnicity) => String.t(),
-          optional(:first_name) => String.t(),
-          optional(:gender) => String.t(),
-          optional(:last_name) => String.t(),
-          optional(:preferred_language) => String.t(),
-          optional(:race) => String.t(),
-          optional(:since) => String.t()
+          required(:chart_id) => String.t(),
+          required(:date_of_birth) => String.t(),
+          required(:doctor) => integer(),
+          required(:email) => String.t(),
+          required(:ethnicity) => String.t(),
+          required(:first_name) => String.t(),
+          required(:gender) => String.t(),
+          required(:last_name) => String.t(),
+          required(:preferred_language) => String.t(),
+          required(:race) => String.t(),
+          required(:since) => String.t()
         }
 
   @type workers_comp_insurance :: %{
@@ -256,4 +256,6 @@ defmodule Chroner.Clinical.Patient do
     :workers_comp_insurance,
     :zip_code
   ]
+
+  def plural, do: "patients"
 end
