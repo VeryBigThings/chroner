@@ -5,7 +5,7 @@ defmodule Chroner do
   alias Chroner.{Administrative, Authorization, Clinical}
 
   # --------------------------------------------------------------------
-  # Authentication
+  # Authorization
   # --------------------------------------------------------------------
 
   defdelegate client(opts), to: Authorization
