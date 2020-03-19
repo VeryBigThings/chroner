@@ -7,7 +7,7 @@ defmodule Chroner.Authorization do
           optional(:client_id) => String.t(),
           optional(:client_secret) => String.t(),
           optional(:redirect_uri) => String.t(),
-          optional(:access_token) => String.t()
+          optional(:token) => String.t()
         }
 
   # --------------------------------------------------------------------
@@ -16,6 +16,10 @@ defmodule Chroner.Authorization do
 
   @spec client(config) :: Client.t()
   def client(config \\ %{}) do
+    token =
+      with token when is_binary(token) <- Map.get(config, :token),
+           do: AccessToken.new(token)
+
     Client.new(
       authorize_url: "https://drchrono.com/o/authorize",
       client_id: Map.get(config, :client_id),
@@ -25,7 +29,7 @@ defmodule Chroner.Authorization do
       serializers: %{"application/json" => Poison},
       site: "https://app.drchrono.com/api",
       strategy: __MODULE__,
-      token: config |> Map.get(:access_token) |> AccessToken.new(),
+      token: token,
       token_url: "https://drchrono.com/o/token/"
     )
   end

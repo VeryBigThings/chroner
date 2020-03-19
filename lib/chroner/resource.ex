@@ -1,54 +1,99 @@
 defmodule Chroner.Resource do
-  alias Chroner.{Response, Request}
-  alias OAuth2.Client
+  alias OAuth2.{Client, Response}
 
-  @spec create(Client.t(), map(), module()) :: {:ok, struct()} | {:error, Response.t()}
+  @type client :: Client.t()
+  @type success :: {:ok, struct()}
+  @type error :: {:error, OAuth2.Response.t()}
+
+  # --------------------------------------------------------------------
+  # API
+  # --------------------------------------------------------------------
+
+  @spec create(client, map(), Ecto.Schema.t()) :: success | error
   def create(client, params, module) do
     with {:ok, %Response{body: data}} <-
-           Request.post(client, "/#{module.plural()}", params, Request.upsert_headers()),
-         do: {:ok, Response.resource(module, data)}
+           Client.post(
+             client,
+             "/#{module.plural()}",
+             params,
+             upsert_headers()
+           ),
+         do: {:ok, cast_resource(module, data)}
   end
 
-  @spec current(Client.t(), module()) :: {:ok, struct()} | {:error, Response.t()}
+  @spec current(client, Ecto.Schema.t()) :: success | error
   def current(client, module) do
     with {:ok, %Response{body: data}} <-
-           Request.get(client, "/#{module.plural()}/current"),
-         do: {:ok, Response.resource(module, data)}
+           Client.get(client, "/#{module.plural()}/current"),
+         do: {:ok, cast_resource(module, data)}
   end
 
-  @spec delete(Client.t(), integer(), module()) :: :ok | {:error, Response.t()}
+  @spec delete(client, integer(), Ecto.Schema.t()) :: :ok | error
   def delete(client, id, module) do
     with {:ok, _} <-
-           Request.delete(client, "/#{module.plural()}/#{id}"),
+           Client.delete(client, "/#{module.plural()}/#{id}"),
          do: :ok
   end
 
-  @spec list(Client.t(), module()) :: {:ok, list(struct())} | {:error, Response.t()}
+  @spec list(client, Ecto.Schema.t()) :: {:ok, list(struct())} | error
   def list(client, module) do
     with {:ok, %Response{body: %{"results" => data}}} <-
-           Request.get(client, "/#{module.plural()}"),
-         do: {:ok, Response.resource(module, data)}
+           Client.get(client, "/#{module.plural()}"),
+         do: {:ok, cast_resource(module, data)}
   end
 
-  @spec partial_update(Client.t(), integer(), map(), module()) ::
-          {:ok, struct()} | {:error, Response.t()}
+  @spec partial_update(client, integer(), map(), Ecto.Schema.t()) ::
+          success | error
   def partial_update(client, id, params, module) do
     with {:ok, %Response{body: data}} <-
-           Request.patch(client, "/#{module.plural()}/#{id}", params, Request.upsert_headers()),
-         do: {:ok, Response.resource(module, data)}
+           Client.patch(
+             client,
+             "/#{module.plural()}/#{id}",
+             params,
+             upsert_headers()
+           ),
+         do: {:ok, cast_resource(module, data)}
   end
 
-  @spec read(Client.t(), integer(), module()) :: {:ok, struct()} | {:error, Response.t()}
+  @spec read(client, integer(), Ecto.Schema.t()) :: success | error
   def read(client, id, module) do
     with {:ok, %Response{body: data}} <-
-           Request.get(client, "/#{module.plural()}/#{id}"),
-         do: {:ok, Response.resource(module, data)}
+           Client.get(client, "/#{module.plural()}/#{id}"),
+         do: {:ok, cast_resource(module, data)}
   end
 
-  @spec update(Client.t(), integer(), map(), module()) :: {:ok, struct()} | {:error, Response.t()}
+  @spec update(client, integer(), map(), Ecto.Schema.t()) ::
+          success | error
   def update(client, id, params, module) do
     with {:ok, %Response{body: data}} <-
-           Request.put(client, "/#{module.plural()}/#{id}", params, Request.upsert_headers()),
-         do: {:ok, Response.resource(module, data)}
+           Client.put(
+             client,
+             "/#{module.plural()}/#{id}",
+             params,
+             upsert_headers()
+           ),
+         do: {:ok, cast_resource(module, data)}
   end
+
+  # --------------------------------------------------------------------
+  # Private functions
+  # --------------------------------------------------------------------
+
+  defp upsert_headers do
+    [
+      {"content-type", "application/x-www-form-urlencoded"},
+      {"accept", "application/json"}
+    ]
+  end
+
+  defp cast_resource(type, data) when is_struct(data),
+    do: struct(type, Map.from_struct(data))
+
+  defp cast_resource(type, data) when is_map(data) do
+    {:ok, struct} = EctoMorph.cast_to_struct(data, type)
+    struct
+  end
+
+  defp cast_resource(type, data) when is_list(data),
+    do: Enum.map(data, &cast_resource(type, &1))
 end

@@ -29,6 +29,8 @@ defmodule Chroner.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:ecto, "~> 3.3"},
+      {:ecto_morph, "~> 0.1.13"},
       {:ex_doc, "~> 0.21", only: :dev, runtime: false},
       {:oauth2, "~> 2.0"},
       {:poison, "~> 3.1"}

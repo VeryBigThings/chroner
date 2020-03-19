@@ -1,4 +1,7 @@
 defmodule Chroner.Administrative.Doctor do
+  use Ecto.Schema
+
+  @primary_key false
   @derive [Poison.Encoder]
 
   @type t :: %__MODULE__{
@@ -15,7 +18,7 @@ defmodule Chroner.Administrative.Doctor do
           npi_number: String.t(),
           office_phone: String.t(),
           practice_group_name: String.t(),
-          practice_group: String.t(),
+          practice_group: integer(),
           profile_picture: String.t(),
           specialty: String.t(),
           suffix: String.t(),
@@ -23,27 +26,27 @@ defmodule Chroner.Administrative.Doctor do
           website: String.t()
         }
 
-  defstruct [
-    :cell_phone,
-    :country,
-    :email,
-    :first_name,
-    :group_npi_number,
-    :home_phone,
-    :id,
-    :is_account_suspended,
-    :job_title,
-    :last_name,
-    :npi_number,
-    :office_phone,
-    :practice_group_name,
-    :practice_group,
-    :profile_picture,
-    :specialty,
-    :suffix,
-    :timezone,
-    :website
-  ]
+  embedded_schema do
+    field :cell_phone, :string
+    field :country, :string
+    field :email, :string
+    field :first_name, :string
+    field :group_npi_number, :string
+    field :home_phone, :string
+    field :id, :integer
+    field :is_account_suspended, :boolean
+    field :job_title, :string
+    field :last_name, :string
+    field :npi_number, :string
+    field :office_phone, :string
+    field :practice_group_name, :string
+    field :practice_group, :integer
+    field :profile_picture, :string
+    field :specialty, :string
+    field :suffix, :string
+    field :timezone, :string
+    field :website, :string
+  end
 
   def plural, do: "doctors"
 end

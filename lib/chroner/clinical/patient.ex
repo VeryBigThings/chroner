@@ -1,4 +1,7 @@
 defmodule Chroner.Clinical.Patient do
+  use Ecto.Schema
+
+  @primary_key false
   @derive [Poison.Encoder]
 
   alias Chroner.Administrative.Doctor
@@ -199,63 +202,63 @@ defmodule Chroner.Clinical.Patient do
           zip_code: String.t()
         }
 
-  defstruct [
-    :address,
-    :auto_accident_insurance,
-    :cell_phone,
-    :chart_id,
-    :city,
-    :copay,
-    :custom_demographics,
-    :date_of_birth,
-    :date_of_first_appointment,
-    :date_of_last_appointment,
-    :default_pharmacy,
-    :disable_sms_messages,
-    :doctor,
-    :email,
-    :emergency_contact_name,
-    :emergency_contact_phone,
-    :emergency_contact_relation,
-    :employer_address,
-    :employer_city,
-    :employer_state,
-    :employer_zip_code,
-    :employer,
-    :ethnicity,
-    :first_name,
-    :gender,
-    :home_phone,
-    :id,
-    :last_name,
-    :middle_name,
-    :nick_name,
-    :office_phone,
-    :offices,
-    :patient_flags_attached,
-    :patient_flags,
-    :patient_payment_profile,
-    :patient_photo_date,
-    :patient_photo,
-    :patient_status,
-    :preferred_language,
-    :primary_care_physician,
-    :primary_insurance,
-    :race,
-    :referring_doctor,
-    :referring_source,
-    :responsible_party_email,
-    :responsible_party_name,
-    :responsible_party_phone,
-    :responsible_party_relation,
-    :secondary_insurance,
-    :social_security_number,
-    :state,
-    :tertiary_insurance,
-    :updated_at,
-    :workers_comp_insurance,
-    :zip_code
-  ]
+  embedded_schema do
+    field :address, :string
+    field :auto_accident_insurance, :map
+    field :cell_phone, :string
+    field :chart_id, :string
+    field :city, :string
+    field :copay, :string
+    field :custom_demographics, {:array, :map}
+    field :date_of_birth, :string
+    field :date_of_first_appointment, :string
+    field :date_of_last_appointment, :string
+    field :default_pharmacy, :string
+    field :disable_sms_messages, :boolean
+    field :doctor, :integer
+    field :email, :string
+    field :emergency_contact_name, :string
+    field :emergency_contact_phone, :string
+    field :emergency_contact_relation, :string
+    field :employer_address, :string
+    field :employer_city, :string
+    field :employer_state, :string
+    field :employer_zip_code, :string
+    field :employer, :string
+    field :ethnicity, :string
+    field :first_name, :string
+    field :gender, :string
+    field :home_phone, :string
+    field :last_name, :string
+    field :id, :integer
+    field :middle_name, :string
+    field :nick_name, :string
+    field :office_phone, :string
+    field :offices, {:array, :integer}
+    field :patient_flags_attached, {:array, :map}
+    field :patient_flags, {:array, :map}
+    field :patient_payment_profile, :string
+    field :patient_photo_date, :string
+    field :patient_photo, :string
+    field :patient_status, :string
+    field :preferred_language, :string
+    field :primary_care_physician, :string
+    field :primary_insurance, :map
+    field :race, :string
+    embeds_one :referring_doctor, Doctor
+    field :referring_source, :string
+    field :responsible_party_email, :string
+    field :responsible_party_name, :string
+    field :responsible_party_phone, :string
+    field :responsible_party_relation, :string
+    field :secondary_insurance, :map
+    field :social_security_number, :string
+    field :state, :string
+    field :tertiary_insurance, :map
+    field :updated_at, :string
+    field :workers_comp_insurance, :map
+    field :zip_code, :string
+  end
 
   def plural, do: "patients"
 end
