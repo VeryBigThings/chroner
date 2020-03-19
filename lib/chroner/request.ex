@@ -6,8 +6,7 @@ defmodule Chroner.Request do
   for method <- ~w(get delete patch post put)a do
     def unquote(method)(client, url, params \\ [], headers \\ []) do
       {status, response} = OAuth2.Client.unquote(method)(client, url, params, headers)
-      response = convert_response_struct(response)
-      {status, response}
+      {status, Response.resource(Response, response)}
     end
   end
 
@@ -17,6 +16,4 @@ defmodule Chroner.Request do
       {"accept", "application/json"}
     ]
   end
-
-  defp convert_response_struct(struct), do: struct(Response, Map.from_struct(struct))
 end
