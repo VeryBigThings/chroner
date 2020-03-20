@@ -3,12 +3,12 @@ defmodule Chroner.Authorization do
 
   alias OAuth2.{AccessToken, Client, Error}
 
-  @type config :: %{
-          optional(:client_id) => String.t(),
-          optional(:client_secret) => String.t(),
-          optional(:redirect_uri) => String.t(),
-          optional(:token) => String.t()
-        }
+  @type config :: [
+          client_id: String.t(),
+          client_secret: String.t(),
+          redirect_uri: String.t(),
+          token: String.t()
+        ]
 
   # --------------------------------------------------------------------
   # Client
@@ -17,14 +17,14 @@ defmodule Chroner.Authorization do
   @spec client(config) :: Client.t()
   def client(config \\ %{}) do
     token =
-      with token when is_binary(token) <- Map.get(config, :token),
+      with token when not is_nil(token) <- Keyword.get(config, :token),
            do: AccessToken.new(token)
 
     Client.new(
       authorize_url: "https://drchrono.com/o/authorize",
-      client_id: Map.get(config, :client_id),
-      client_secret: Map.get(config, :client_secret),
-      redirect_uri: Map.get(config, :redirect_uri),
+      client_id: Keyword.get(config, :client_id),
+      client_secret: Keyword.get(config, :client_secret),
+      redirect_uri: Keyword.get(config, :redirect_uri),
       request_opts: [follow_redirect: true],
       serializers: %{"application/json" => Poison},
       site: "https://app.drchrono.com/api",
