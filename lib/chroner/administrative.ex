@@ -15,36 +15,36 @@ defmodule Chroner.Administrative do
   # Doctors
   # --------------------------------------------------------------------
 
-  @spec doctors_list(client) :: {:ok, Doctor.t()} | error
   @doc "Fetches all doctors resources."
+  @spec doctors_list(client) :: {:ok, Doctor.t()} | error
   def doctors_list(client), do: list(client, Doctor)
 
-  @spec doctors_read(client, id) :: {:ok, Doctor.t()} | error
   @doc "Fetches doctors resource by ID."
+  @spec doctors_read(client, id) :: {:ok, Doctor.t()} | error
   def doctors_read(client, id), do: read(client, id, Doctor)
 
   # --------------------------------------------------------------------
   # Users
   # --------------------------------------------------------------------
 
-  @spec users_current(client) :: {:ok, User.t()} | error
   @doc "Fetches users resource by ID."
+  @spec users_current(client) :: {:ok, User.t()} | error
   def users_current(client), do: current(client, User)
 
-  @spec users_list(client) :: {:ok, User.t()} | error
   @doc "Fetches all users resources."
+  @spec users_list(client) :: {:ok, User.t()} | error
   def users_list(client), do: list(client, User)
 
-  @spec users_read(client, id) :: {:ok, User.t()} | error
   @doc "Fetches users resource by ID."
+  @spec users_read(client, id) :: {:ok, User.t()} | error
   def users_read(client, id), do: read(client, id, User)
 
   # --------------------------------------------------------------------
   # User Groups
   # --------------------------------------------------------------------
 
+  @doc "Fetches user groups resource by ID."
   @spec user_groups_read(client, id) ::
           {:ok, UserGroup.t()} | error
-  @doc "Fetches user groups resource by ID."
   def user_groups_read(client, id), do: read(client, id, UserGroup)
 end

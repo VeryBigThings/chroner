@@ -1,7 +1,7 @@
 defmodule Chroner.Authorization do
   use OAuth2.Strategy
 
-  alias OAuth2.{AccessToken, Client}
+  alias OAuth2.{AccessToken, Client, Error}
 
   @type config :: %{
           optional(:client_id) => String.t(),
@@ -38,8 +38,10 @@ defmodule Chroner.Authorization do
   # API
   # --------------------------------------------------------------------
 
+  @spec authorize_url!(Client.t(), String.t()) :: String.t()
   def authorize_url!(client, scope), do: Client.authorize_url!(client, scope: scope)
 
+  @spec get_token!(Client.t(), map()) :: Client.t() | Error.t()
   def get_token!(client, params \\ [], headers \\ [], opts \\ []),
     do: Client.get_token!(client, params, headers, opts)
 
