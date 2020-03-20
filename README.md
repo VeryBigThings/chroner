@@ -158,14 +158,14 @@ You're very welcome to contribute to the project by adding missing endpoints, te
 
 Always create a new branch and request a PR from code owner.
 
-All endpoints and API resources are mapped from (official documentation)[https://app.drchrono.com/api-docs/]. If you want to add new endpoint, find a belonging context and define it there.
+All endpoints and API resources are mapped from [official documentation](https://app.drchrono.com/api-docs/). If you want to add new endpoint, find a belonging context and define it there.
 
 ### Testing
 
 All endpoints need to be tested at one point. Tests are configured using cassettes with [ex_vcr](https://github.com/parroty/exvcr). Due to this decision you need to setup desired state on you Dr.Chrono app before running the test and recording
 new cassettes. If you're fixing or modifying existing endpoints/tests, please [delete](https://github.com/parroty/exvcr#mix-vcrdelete-delete-cassettes) desired cassette first and then record your own.
 
-To (re)record new cassettes you must provision an valid [access token](https://app.drchrono.com/api-docs/#section/Authorization) and export it as environment variable under the name of `ACCESS_TOKEN`. Be aware of defining right access token scope for the endpoints you need to test. If not sure what scope to use, use all [available](https://app.drchrono.com/api-docs/#section/Authentication) rights.
+To (re)record new cassettes you must provision an valid [access token](https://app.drchrono.com/api-docs/#section/Authorization) and export it as environment variable under the name of `ACCESS_TOKEN`. Be aware of defining right access token scope for the endpoints you need to test. If not sure what scope to use, use all [available](https://app.drchrono.com/api-docs/#section/Authentication) rights. Also, recorded cassettes don't track `authorization` header by default.
 
 Scopes:
 ```
