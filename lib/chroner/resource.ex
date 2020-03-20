@@ -88,12 +88,13 @@ defmodule Chroner.Resource do
     ]
   end
 
-  defp cast_resource(type, data) when is_struct(data),
+  defp cast_resource(type, %_{} = data),
     do: struct(type, Map.from_struct(data))
 
   defp cast_resource(type, data) when is_map(data) do
-    {:ok, struct} = EctoMorph.cast_to_struct(data, type)
-    struct
+    data
+    |> EctoMorph.cast_to_struct(type)
+    |> elem(1)
   end
 
   defp cast_resource(type, data) when is_list(data),

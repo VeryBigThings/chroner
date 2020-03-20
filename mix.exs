@@ -5,7 +5,7 @@ defmodule Chroner.MixProject do
     [
       app: :chroner,
       version: "0.1.0",
-      elixir: "~> 1.5",
+      elixir: "~> 1.8.0",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       dialyzer: dialyzer(),

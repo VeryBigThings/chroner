@@ -11,25 +11,65 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    env:
+      CACHE_VERSION: v1
+
     steps:
     - uses: actions/checkout@v2
+
     - name: Setup elixir
       uses: actions/setup-elixir@v1
       with:
-        elixir-version: 1.5 # Define the elixir version [required]
-        otp-version: 20.0 # Define the OTP version [required]
+        elixir-version: 1.8.0
+        otp-version: 21.0
+
+    - name: Restore cached deps
+      uses: actions/cache@v1
+      with:
+        path: deps
+        key: deps-${{ github.ref }}-${{ env.CACHE_VERSION }}-${{ hashFiles('mix.lock') }}
+
     - name: Install Dependencies
       run: mix deps.get
+
     - name: Compile project environments
       run: \
         MIX_ENV=test mix compile --warnings-as-errors
         MIX_ENV=dev mix compile --warnings-as-errors
         MIX_ENV=prod mix compile --warnings-as-errors
+
+    - name: Cache deps
+      uses: actions/cache@v1
+      with:
+        path: deps
+        key: deps-${{ github.ref }}-${{ env.CACHE_VERSION }}-${{ hashFiles('mix.lock') }}
+
     - name: Check format
       run: mix format --check-formatted
+
     - name: Run credo
       run: mix credo --strict
+
+    - name: Restore cached dialyzer PLTs
+      uses: actions/cache@v1
+      with:
+        path: plts
+        key: dialyzer-plts-${{ github.ref }}-${{ env.CACHE_VERSION }}-${{ hashFiles('mix.lock') }}
+
+    - name: Restore cached dialyzer files
+      run: mkdir -p plts && ls plts | xargs -I % cp plts/% _builds/test/
+
     - name: Run dialyzer
       run: mix dialyzer --halt-exit-status
+
+    - name: Prepare dialyzer PLT files to cache
+      run: mkdir -p plts && ls _builds/test | grep dialyxir | xargs -I % cp _builds/test/% -t plts
+
+    - name: Cache dialyzer PLTs
+      uses: actions/cache@v1
+      with:
+        path: plts
+        key: dialyzer-plts-${{ github.ref }}-${{ env.CACHE_VERSION }}-${{ hashFiles('mix.lock') }}
+
     - name: Run Tests
       run: mix test
