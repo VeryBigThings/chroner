@@ -1,21 +1,32 @@
 defmodule Chroner.Authorization do
+  @moduledoc "Authorization"
+
   use OAuth2.Strategy
 
-  alias OAuth2.{AccessToken, Client}
-  alias Chroner.Config
+  alias OAuth2.{AccessToken, Client, Error, Strategy}
+
+  @type config :: [
+          client_id: String.t(),
+          client_secret: String.t(),
+          redirect_uri: String.t(),
+          token: String.t()
+        ]
 
   # --------------------------------------------------------------------
   # Client
   # --------------------------------------------------------------------
 
-  def client(opts \\ []) do
-    token = if opts[:access_token], do: AccessToken.new(opts[:access_token])
+  @spec client(config) :: Client.t()
+  def client(config \\ []) do
+    token =
+      with access_token when not is_nil(access_token) <- Keyword.get(config, :access_token),
+           do: AccessToken.new(access_token)
 
     Client.new(
       authorize_url: "https://drchrono.com/o/authorize",
-      client_id: opts[:config][:client_id] || Config.client_id(),
-      client_secret: opts[:config][:client_secret] || Config.client_secret(),
-      redirect_uri: opts[:config][:redirect_uri] || Config.redirect_uri(),
+      client_id: Keyword.get(config, :client_id, ""),
+      client_secret: Keyword.get(config, :client_secret, ""),
+      redirect_uri: Keyword.get(config, :redirect_uri, ""),
       request_opts: [follow_redirect: true],
       serializers: %{"application/json" => Poison},
       site: "https://app.drchrono.com/api",
@@ -29,20 +40,24 @@ defmodule Chroner.Authorization do
   # API
   # --------------------------------------------------------------------
 
-  def authorize_url!(scope), do: OAuth2.Client.authorize_url!(client(), scope: scope)
+  @spec authorize_url!(Client.t(), String.t()) :: binary()
+  def authorize_url!(client, scope), do: Client.authorize_url!(client, scope: scope)
 
-  def get_token!(params \\ [], headers \\ [], opts \\ []),
-    do: OAuth2.Client.get_token!(client(), params, headers, opts)
+  @spec get_token!(Client.t(), map()) :: Client.t() | Error.t()
+  def get_token!(client, params \\ %{}),
+    do: Client.get_token!(client, params)
 
   # --------------------------------------------------------------------
   # Strategy callbacks
   # --------------------------------------------------------------------
 
-  def authorize_url(client, params), do: OAuth2.Strategy.AuthCode.authorize_url(client, params)
+  @impl Strategy
+  def authorize_url(client, params), do: Strategy.AuthCode.authorize_url(client, params)
 
+  @impl Strategy
   def get_token(client, params, headers) do
     client
     |> put_param(:client_secret, client.client_secret)
-    |> OAuth2.Strategy.AuthCode.get_token(params, headers)
+    |> Strategy.AuthCode.get_token(params, headers)
   end
 end

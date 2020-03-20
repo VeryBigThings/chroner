@@ -1,4 +1,9 @@
 defmodule Chroner.Clinical.AppointmentProfile do
+  @moduledoc "Appointment profile"
+
+  use Ecto.Schema
+
+  @primary_key false
   @derive [Poison.Encoder]
 
   @type create_params :: %{
@@ -22,13 +27,13 @@ defmodule Chroner.Clinical.AppointmentProfile do
         }
 
   @type update_params :: %{
-          optional(:color) => String.t(),
-          optional(:doctor) => integer(),
-          optional(:duration) => integer(),
-          optional(:name) => String.t(),
-          optional(:reason) => String.t(),
-          optional(:online_scheduling) => boolean(),
-          optional(:duration) => integer()
+          required(:color) => String.t(),
+          required(:doctor) => integer(),
+          required(:duration) => integer(),
+          required(:name) => String.t(),
+          required(:reason) => String.t(),
+          required(:online_scheduling) => boolean(),
+          required(:duration) => integer()
         }
 
   @type t :: %__MODULE__{
@@ -43,15 +48,17 @@ defmodule Chroner.Clinical.AppointmentProfile do
           sort_order: integer()
         }
 
-  defstruct [
-    :archived,
-    :color,
-    :doctor,
-    :duration,
-    :id,
-    :name,
-    :online_scheduling,
-    :reason,
-    :sort_order
-  ]
+  embedded_schema do
+    field :archived, :boolean
+    field :color, :string
+    field :doctor, :integer
+    field :duration, :integer
+    field :id, :integer
+    field :name, :string
+    field :online_scheduling, :boolean
+    field :reason, :string
+    field :sort_order, :integer
+  end
+
+  def plural, do: "appointment_profile"
 end
