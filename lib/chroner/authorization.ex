@@ -1,7 +1,9 @@
 defmodule Chroner.Authorization do
+  @moduledoc "Authorization"
+
   use OAuth2.Strategy
 
-  alias OAuth2.{AccessToken, Client, Error}
+  alias OAuth2.{AccessToken, Client, Error, Strategy}
 
   @type config :: [
           client_id: String.t(),
@@ -49,13 +51,13 @@ defmodule Chroner.Authorization do
   # Strategy callbacks
   # --------------------------------------------------------------------
 
-  @impl OAuth2.Strategy
-  def authorize_url(client, params), do: OAuth2.Strategy.AuthCode.authorize_url(client, params)
+  @impl Strategy
+  def authorize_url(client, params), do: Strategy.AuthCode.authorize_url(client, params)
 
-  @impl OAuth2.Strategy
+  @impl Strategy
   def get_token(client, params, headers) do
     client
     |> put_param(:client_secret, client.client_secret)
-    |> OAuth2.Strategy.AuthCode.get_token(params, headers)
+    |> Strategy.AuthCode.get_token(params, headers)
   end
 end

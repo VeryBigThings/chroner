@@ -1,4 +1,6 @@
 defmodule Chroner.Clinical.Patient do
+  @moduledoc "Patient"
+
   use Ecto.Schema
 
   @primary_key false

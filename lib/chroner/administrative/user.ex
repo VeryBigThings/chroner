@@ -1,4 +1,6 @@
 defmodule Chroner.Administrative.User do
+  @moduledoc "User"
+
   use Ecto.Schema
 
   @primary_key false

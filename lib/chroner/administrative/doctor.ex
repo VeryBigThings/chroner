@@ -1,4 +1,6 @@
 defmodule Chroner.Administrative.Doctor do
+  @moduledoc "Doctor"
+
   use Ecto.Schema
 
   @primary_key false

@@ -1,4 +1,6 @@
 defmodule Chroner.Resource do
+  @moduledoc false
+
   alias OAuth2.{Client, Response}
 
   @type client :: Client.t()

@@ -1,4 +1,6 @@
 defmodule Chroner.Administrative.Permissions do
+  @moduledoc "Permissions"
+
   use Ecto.Schema
 
   @primary_key false

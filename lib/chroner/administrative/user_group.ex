@@ -1,4 +1,6 @@
 defmodule Chroner.Administrative.UserGroup do
+  @moduledoc "User Group"
+
   use Ecto.Schema
 
   @primary_key false

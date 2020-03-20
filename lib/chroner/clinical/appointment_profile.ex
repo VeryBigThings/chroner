@@ -1,4 +1,6 @@
 defmodule Chroner.Clinical.AppointmentProfile do
+  @moduledoc "Appointment profile"
+
   use Ecto.Schema
 
   @primary_key false

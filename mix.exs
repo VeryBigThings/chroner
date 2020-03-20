@@ -30,6 +30,7 @@ defmodule Chroner.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:credo, "~> 1.3", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 0.5", runtime: false},
       {:ecto, "~> 3.3"},
       {:ecto_morph, "~> 0.1.13"},
