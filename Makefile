@@ -1,8 +1,8 @@
-.PHONY: help test
+.PHONY: help evaluate
 
 DEFAULT_GOAL: help
 
-test:
+evaluate:
 	mix deps.get && \
 		MIX_ENV=test mix compile --warnings-as-errors && \
 		MIX_ENV=dev mix compile --warnings-as-errors && \
