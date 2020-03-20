@@ -9,7 +9,7 @@ defmodule Chroner.Resource do
   # API
   # --------------------------------------------------------------------
 
-  @spec create(client, map(), Ecto.Schema.t()) :: success | error
+  @spec create(client, map(), module()) :: success | error
   def create(client, params, module) do
     with {:ok, %Response{body: data}} <-
            Client.post(
@@ -21,28 +21,28 @@ defmodule Chroner.Resource do
          do: {:ok, cast_resource(module, data)}
   end
 
-  @spec current(client, Ecto.Schema.t()) :: success | error
+  @spec current(client, module()) :: success | error
   def current(client, module) do
     with {:ok, %Response{body: data}} <-
            Client.get(client, "/#{module.plural()}/current"),
          do: {:ok, cast_resource(module, data)}
   end
 
-  @spec delete(client, integer(), Ecto.Schema.t()) :: :ok | error
+  @spec delete(client, integer(), module()) :: :ok | error
   def delete(client, id, module) do
     with {:ok, _} <-
            Client.delete(client, "/#{module.plural()}/#{id}"),
          do: :ok
   end
 
-  @spec list(client, Ecto.Schema.t()) :: {:ok, list(struct())} | error
+  @spec list(client, module()) :: {:ok, list(struct())} | error
   def list(client, module) do
     with {:ok, %Response{body: %{"results" => data}}} <-
            Client.get(client, "/#{module.plural()}"),
          do: {:ok, cast_resource(module, data)}
   end
 
-  @spec partial_update(client, integer(), map(), Ecto.Schema.t()) ::
+  @spec partial_update(client, integer(), map(), module()) ::
           success | error
   def partial_update(client, id, params, module) do
     with {:ok, %Response{body: data}} <-
@@ -55,14 +55,14 @@ defmodule Chroner.Resource do
          do: {:ok, cast_resource(module, data)}
   end
 
-  @spec read(client, integer(), Ecto.Schema.t()) :: success | error
+  @spec read(client, integer(), module()) :: success | error
   def read(client, id, module) do
     with {:ok, %Response{body: data}} <-
            Client.get(client, "/#{module.plural()}/#{id}"),
          do: {:ok, cast_resource(module, data)}
   end
 
-  @spec update(client, integer(), map(), Ecto.Schema.t()) ::
+  @spec update(client, integer(), map(), module()) ::
           success | error
   def update(client, id, params, module) do
     with {:ok, %Response{body: data}} <-

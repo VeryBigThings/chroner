@@ -8,6 +8,7 @@ defmodule Chroner.MixProject do
       elixir: "~> 1.5",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
+      dialyzer: dialyzer(),
 
       # Docs
       name: "Chroner",
@@ -29,11 +30,19 @@ defmodule Chroner.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:dialyxir, "~> 0.5", runtime: false},
       {:ecto, "~> 3.3"},
       {:ecto_morph, "~> 0.1.13"},
       {:ex_doc, "~> 0.21", only: :dev, runtime: false},
       {:oauth2, "~> 2.0"},
       {:poison, "~> 3.1"}
+    ]
+  end
+
+  defp dialyzer() do
+    [
+      plt_add_apps: [:ex_unit, :mix],
+      ignore_warnings: "dialyzer.ignore-warnings"
     ]
   end
 end

@@ -15,16 +15,16 @@ defmodule Chroner.Authorization do
   # --------------------------------------------------------------------
 
   @spec client(config) :: Client.t()
-  def client(config \\ %{}) do
+  def client(config \\ []) do
     token =
-      with token when not is_nil(token) <- Keyword.get(config, :token),
-           do: AccessToken.new(token)
+      with access_token when not is_nil(access_token) <- Keyword.get(config, :access_token),
+           do: AccessToken.new(access_token)
 
     Client.new(
       authorize_url: "https://drchrono.com/o/authorize",
-      client_id: Keyword.get(config, :client_id),
-      client_secret: Keyword.get(config, :client_secret),
-      redirect_uri: Keyword.get(config, :redirect_uri),
+      client_id: Keyword.get(config, :client_id, ""),
+      client_secret: Keyword.get(config, :client_secret, ""),
+      redirect_uri: Keyword.get(config, :redirect_uri, ""),
       request_opts: [follow_redirect: true],
       serializers: %{"application/json" => Poison},
       site: "https://app.drchrono.com/api",
@@ -38,12 +38,12 @@ defmodule Chroner.Authorization do
   # API
   # --------------------------------------------------------------------
 
-  @spec authorize_url!(Client.t(), String.t()) :: String.t()
+  @spec authorize_url!(Client.t(), String.t()) :: binary()
   def authorize_url!(client, scope), do: Client.authorize_url!(client, scope: scope)
 
   @spec get_token!(Client.t(), map()) :: Client.t() | Error.t()
-  def get_token!(client, params \\ [], headers \\ [], opts \\ []),
-    do: Client.get_token!(client, params, headers, opts)
+  def get_token!(client, params \\ %{}),
+    do: Client.get_token!(client, params)
 
   # --------------------------------------------------------------------
   # Strategy callbacks
