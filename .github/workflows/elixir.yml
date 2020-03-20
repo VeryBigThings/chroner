@@ -19,7 +19,11 @@ jobs:
 
     - name: Setup elixir
       uses: actions/setup-elixir@v1
-      with:- name: Prepare dialyzer PLT files to cache
+      with:
+        elixir-version: 1.8.0
+        otp-version: 21.0
+
+    - name: Prepare dialyzer PLT files to cache
       run: mkdir -p plts && ls _builds/test | grep dialyxir | xargs -I % cp _builds/test/% -t plts
 
     - name: Cache dialyzer PLTs
@@ -27,8 +31,6 @@ jobs:
       with:
         path: plts
         key: dialyzer-plts-${{ github.ref }}-${{ env.CACHE_VERSION }}-${{ hashFiles('mix.lock') }}
-        elixir-version: 1.8.0
-        otp-version: 21.0
 
     - name: Restore cached deps
       uses: actions/cache@v1
