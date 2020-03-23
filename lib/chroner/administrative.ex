@@ -16,7 +16,7 @@ defmodule Chroner.Administrative do
   # --------------------------------------------------------------------
 
   @doc "Fetches all doctors resources."
-  @spec doctors_list(client) :: {:ok, list(Doctor.t()) | []} | error
+  @spec doctors_list(client) :: {:ok, [Doctor.t()] | []} | error
   def doctors_list(client), do: list(client, Doctor)
 
   @doc "Fetches doctors resource by ID."
@@ -32,7 +32,7 @@ defmodule Chroner.Administrative do
   def users_current(client), do: current(client, User)
 
   @doc "Fetches all users resources."
-  @spec users_list(client) :: {:ok, list(User.t()) | []} | error
+  @spec users_list(client) :: {:ok, [User.t()] | []} | error
   def users_list(client), do: list(client, User)
 
   @doc "Fetches users resource by ID."
@@ -44,7 +44,7 @@ defmodule Chroner.Administrative do
   # --------------------------------------------------------------------
 
   @doc "Fetches all user groups resources."
-  @spec user_groups_list(client) :: {:ok, list(UserGroup.t()) | []} | error
+  @spec user_groups_list(client) :: {:ok, [UserGroup.t()] | []} | error
   def user_groups_list(client), do: list(client, UserGroup)
 
   @doc "Fetches user groups resource by ID."

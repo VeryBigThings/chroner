@@ -37,7 +37,7 @@ defmodule Chroner.Resource do
          do: :ok
   end
 
-  @spec list(client, module()) :: {:ok, list(struct()) | []} | error
+  @spec list(client, module()) :: {:ok, [struct()] | []} | error
   def list(client, module) do
     with {:ok, %Response{body: %{"results" => data}}} <-
            Client.get(client, "/#{module.plural()}"),
