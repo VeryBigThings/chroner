@@ -25,131 +25,7 @@ You can configure your chroner client by providing `access_token` to consume Dr.
 
 ```elixir
 iex(1)> client = Chroner.client(access_token: System.get_env("ACCESS_TOKEN"))
-%OAuth2.Client{
-  authorize_url: "https://drchrono.com/o/authorize",
-  client_id: "",
-  client_secret: "",
-  headers: [],
-  params: %{},
-  redirect_uri: "",
-  ref: nil,
-  request_opts: [follow_redirect: true],
-  serializers: %{"application/json" => Poison},
-  site: "https://app.drchrono.com/api",
-  strategy: Chroner.Authorization,
-  token: %OAuth2.AccessToken{
-    access_token: ***,
-    expires_at: nil,
-    other_params: %{},
-    refresh_token: nil,
-    token_type: "Bearer"
-  },
-  token_method: :post,
-  token_url: "https://drchrono.com/o/token/"
-}
 iex(2)> Chroner.users_current(client)
-{:ok,
- %Chroner.Administrative.User{
-   doctor: ***,
-   id: ***,
-   is_doctor: true,
-   is_staff: false,
-   permissions: %Chroner.Administrative.Permissions{
-     access_all_messages_for_practice_group: false,
-     "access_balance/ledger": false,
-     access_billing: true,
-     access_clinical_notes: true,
-     access_institutional_billing: true,
-     access_patient_analytics: true,
-     access_patient_payments: false,
-     access_patient_statements: false,
-     access_reports: true,
-     access_scheduling: true,
-     access_to_erx: true,
-     access_to_message_center: true,
-     add_new_referring_sources: false,
-     appointment_provider_selection: true,
-     billing_administrator: false,
-     create_and_update_contacts: true,
-     create_and_update_patients: true,
-     drug_interactions_check: true,
-     emergency_access: true,
-     export_patients: true,
-     manage_accounts: true,
-     manage_permissions: true,
-     manage_templates: true,
-     provider_dropdown: false,
-     settings: true,
-     share_patients: false,
-     show_billing_summary: true,
-     show_billing_tab: true,
-     show_patient_balance: true,
-     "sign/lock_clinical_notes": true,
-     use_ipad_ehr: true,
-     view_practice_group: true
-   },
-   practice_group: 279966,
-   username: ***
- }}
-```
-
-If you want to use authorization layer of the chroner you can configure it with `client_id`, `client_secret` and `redirect_uri`. After that you can request authorization url and access token as a part of [OAuth2](https://oauth.net/2/) flow.
-
-```elixir
-iex(1)> config = [client_id: System.get_env("CLIENT_ID"), client_secret: System.get_env("CLIENT_SECRET"), redirect_uri: System.get_env("REDIRECT_URI")]
-iex(2)> client = Chroner.client(config)
-%OAuth2.Client{
-  authorize_url: "https://drchrono.com/o/authorize",
-  client_id: ***,
-  client_secret: ***,
-  headers: [],
-  params: %{},
-  redirect_uri: ***,
-  ref: nil,
-  request_opts: [follow_redirect: true],
-  serializers: %{"application/json" => Poison},
-  site: "https://app.drchrono.com/api",
-  strategy: Chroner.Authorization,
-  token: %OAuth2.AccessToken{
-    expires_at: nil,
-    other_params: %{},
-    access_token: nil,
-    refresh_token: nil,
-    token_type: "Bearer"
-  },
-  token_method: :post,
-  token_url: "https://drchrono.com/o/token/"
-}
-iex(3)> Chroner.authorize_url!(client, "patients:read")
-"https://drchrono.com/o/authorize?client_id=***&redirect_uri=localhost%3A4000&response_type=code&scope=patients%3Aread"
-```
-
-When you retrive `code` along with other params after the OAuth screen you can invoke `get_token!` with you client.
-
-```elixir
-iex(1)> Chroner.get_token!(client, params)
-%OAuth2.Client{
-  authorize_url: "https://drchrono.com/o/authorize",
-  client_id: ***,
-  client_secret: ***,
-  headers: [],
-  params: %{},
-  redirect_uri: ***,
-  ref: nil,
-  request_opts: [follow_redirect: true],
-  serializers: %{"application/json" => Poison},
-  site: "https://app.drchrono.com/api",
-  strategy: Chroner.Authorization,
-  token: %OAuth2.AccessToken{
-    expires_at: nil,
-    other_params: %{},
-    access_token: ***,
-    refresh_token: nil,
-    token_type: "Bearer"
-  },
-  token_method: :post,
-  token_url: "https://drchrono.com/o/token/"
-}
 ```
 
 ## Contribution
@@ -197,10 +73,9 @@ Exporting token:
 ```bash
 export ACCESS_TOKEN=XXXXXXXXXXXXXXXXXXXXXXXXX
 ```
-
-Running tests:
+or:
 ```bash
-make evaluate
+ACCESS_TOKEN=XXXXXXXXXXXXXXXXXXXXXXXXX mix test
 ```
 
 ## Documentation
