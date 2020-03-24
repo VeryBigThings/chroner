@@ -32,15 +32,15 @@ defmodule Chroner.Resource do
 
   @spec delete(client, integer(), module()) :: :ok | error
   def delete(client, id, module) do
-    with {:ok, _} <-
+    with {:ok, %Response{status_code: 204}} <-
            Client.delete(client, "/#{module.plural()}/#{id}"),
          do: :ok
   end
 
-  @spec list(client, module()) :: {:ok, [struct()] | []} | error
-  def list(client, module) do
+  @spec list(client, module(), map()) :: {:ok, [struct()] | []} | error
+  def list(client, module, filters \\ %{}) do
     with {:ok, %Response{body: %{"results" => data}}} <-
-           Client.get(client, "/#{module.plural()}"),
+           Client.get(client, "/#{module.plural()}", [], params: filters),
          do: {:ok, cast_resource(module, data)}
   end
 
@@ -67,14 +67,14 @@ defmodule Chroner.Resource do
   @spec update(client, integer(), map(), module()) ::
           success | error
   def update(client, id, params, module) do
-    with {:ok, %Response{body: data}} <-
+    with {:ok, %Response{status_code: 204}} <-
            Client.put(
              client,
              "/#{module.plural()}/#{id}",
              params,
              upsert_headers()
            ),
-         do: {:ok, cast_resource(module, data)}
+         do: :ok
   end
 
   # --------------------------------------------------------------------
