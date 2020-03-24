@@ -8,7 +8,9 @@ defmodule Chroner do
   # Authorization
   # --------------------------------------------------------------------
 
-  defdelegate client(opts), to: Authorization
+  defdelegate client(config), to: Authorization
+  defdelegate authorize_url!(client, scope), to: Authorization
+  defdelegate get_token!(client, params), to: Authorization
 
   # --------------------------------------------------------------------
   # Administrative
@@ -19,6 +21,7 @@ defmodule Chroner do
   defdelegate users_current(client), to: Administrative
   defdelegate users_list(client), to: Administrative
   defdelegate users_read(client, id), to: Administrative
+  defdelegate user_groups_list(client), to: Administrative
   defdelegate user_groups_read(client, id), to: Administrative
 
   # --------------------------------------------------------------------

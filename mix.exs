@@ -5,7 +5,7 @@ defmodule Chroner.MixProject do
     [
       app: :chroner,
       version: "0.1.0",
-      elixir: "~> 1.8.0",
+      elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       dialyzer: dialyzer(),
@@ -35,6 +35,7 @@ defmodule Chroner.MixProject do
       {:ecto, "~> 3.3"},
       {:ecto_morph, "~> 0.1.13"},
       {:ex_doc, "~> 0.21", only: :dev, runtime: false},
+      {:exvcr, "~> 0.11", only: [:dev, :test], runtime: false},
       {:oauth2, "~> 2.0"},
       {:poison, "~> 3.1"}
     ]

@@ -20,8 +20,8 @@ jobs:
     - name: Setup elixir
       uses: actions/setup-elixir@v1
       with:
-        elixir-version: 1.8.0
-        otp-version: 21.0
+        elixir-version: 1.10.2
+        otp-version: 22.0
 
     - name: Prepare dialyzer PLT files to cache
       run: mkdir -p plts && ls _builds/test | grep dialyxir | xargs -I % cp _builds/test/% -t plts
