@@ -1,4 +1,4 @@
-defmodule Chroner.Support.ClientCase do
+defmodule Chroner.Support.APICase do
   @moduledoc """
   ExUnit case used for setting up clients used in API call tests.
   """
@@ -10,6 +10,10 @@ defmodule Chroner.Support.ClientCase do
       use ExUnit.Case, async: true
       use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
 
+      import Chroner.{Administrative, Clinical}
+
+      alias Chroner.Administrative.{Doctor, User}
+      alias Chroner.Clinical.{AppointmentProfile, Patient}
       alias OAuth2.Response
     end
   end

@@ -1,9 +1,5 @@
 defmodule Chroner.AdministrativeTest do
-  use Chroner.Support.ClientCase
-
-  import Chroner.Administrative
-
-  alias Chroner.Administrative.{Doctor, User}
+  use Chroner.Support.APICase
 
   # --------------------------------------------------------------------
   # Doctors
@@ -17,7 +13,7 @@ defmodule Chroner.AdministrativeTest do
     end
 
     test "fails due to auth", %{invalid_client: client} do
-      use_cassette "doctors_list_error" do
+      use_cassette "doctors_list_401_error" do
         assert {:error, %Response{status_code: 401}} = doctors_list(client)
       end
     end
@@ -57,7 +53,7 @@ defmodule Chroner.AdministrativeTest do
     end
 
     test "fails due to auth", %{invalid_client: client} do
-      use_cassette "users_current_error" do
+      use_cassette "users_current_401_error" do
         assert {:error, %Response{status_code: 401}} = users_current(client)
       end
     end
@@ -111,7 +107,7 @@ defmodule Chroner.AdministrativeTest do
     end
 
     test "fails due to auth", %{invalid_client: client} do
-      use_cassette "user_list_error" do
+      use_cassette "user_groups_list_401_error" do
         assert {:error, %Response{status_code: 401}} = user_groups_list(client)
       end
     end
