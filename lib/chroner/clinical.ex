@@ -26,8 +26,8 @@ defmodule Chroner.Clinical do
   def appointment_profiles_delete(client, id), do: delete(client, id, AppointmentProfile)
 
   @doc "Fetches all appointment_profiles resources."
-  @spec appointment_profiles_list(client, AppointmentProfile.filter_params()) ::
-          {:ok, AppointmentProfile.t()} | error
+  @spec appointment_profiles_list(client, AppointmentProfile.filter_params() | %{}) ::
+          {:ok, [AppointmentProfile.t()] | []} | error
   def appointment_profiles_list(client, filters \\ %{}),
     do: list(client, AppointmentProfile, filters)
 
@@ -67,7 +67,7 @@ defmodule Chroner.Clinical do
   def patients_delete(client, id), do: delete(client, id, Patient)
   @doc "Fetches all patients resources."
 
-  @spec patients_list(client, Patient.filter_params()) :: {:ok, Patient.t()} | error
+  @spec patients_list(client, Patient.filter_params() | %{}) :: {:ok, [Patient.t()] | []} | error
   def patients_list(client, filters \\ %{}), do: list(client, Patient, filters)
   @doc "Fetches patients resource by ID."
 
