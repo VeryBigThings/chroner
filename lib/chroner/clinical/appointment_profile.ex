@@ -1,39 +1,25 @@
 defmodule Chroner.Clinical.AppointmentProfile do
-  @moduledoc "Appointment profile"
+  @moduledoc "Appointment profile schema according to https://rdecicca.drchrono.com/openapi-schema and https://rdecicca.drchrono.com/api-docs-old/v4/documentation#apiappointment_profiles"
 
   use Ecto.Schema
 
   @primary_key false
   @derive [Poison.Encoder]
 
-  @type create_params :: %{
-          required(:color) => String.t(),
-          optional(:doctor) => integer(),
-          optional(:duration) => integer(),
-          required(:name) => String.t(),
-          optional(:reason) => String.t(),
-          required(:online_scheduling) => boolean(),
-          optional(:duration) => integer()
-        }
-
-  @type partial_update_params :: %{
-          optional(:color) => String.t(),
-          optional(:doctor) => integer(),
-          optional(:duration) => integer(),
-          optional(:name) => String.t(),
-          optional(:reason) => String.t(),
-          optional(:online_scheduling) => boolean(),
-          optional(:duration) => integer()
-        }
-
-  @type update_params :: %{
-          required(:color) => String.t(),
+  @type filter_params :: %{
           required(:doctor) => integer(),
-          required(:duration) => integer(),
+          optional(:show_archived) => boolean()
+        }
+
+  @type upsert_params :: %{
+          optional(:archived) => boolean(),
+          required(:color) => String.t(),
+          optional(:doctor) => integer(),
+          optional(:duration) => integer(),
           required(:name) => String.t(),
-          required(:reason) => String.t(),
+          optional(:reason) => String.t(),
           required(:online_scheduling) => boolean(),
-          required(:duration) => integer()
+          optional(:sort_order) => integer()
         }
 
   @type t :: %__MODULE__{
@@ -60,5 +46,5 @@ defmodule Chroner.Clinical.AppointmentProfile do
     field :sort_order, :integer
   end
 
-  def plural, do: "appointment_profile"
+  def plural, do: "appointment_profiles"
 end

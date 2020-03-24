@@ -1,5 +1,5 @@
 defmodule Chroner.Clinical.Patient do
-  @moduledoc "Patient"
+  @moduledoc "Patient schema according to https://rdecicca.drchrono.com/openapi-schema and https://rdecicca.drchrono.com/api-docs-old/v4/documentation#apipatients"
 
   use Ecto.Schema
 
@@ -59,18 +59,21 @@ defmodule Chroner.Clinical.Patient do
           value: String.t()
         }
 
-  @type create_params :: %{
-          optional(:chart_id) => String.t(),
+  @type ethnicity :: :blank | :hispanic | :not_hispanic | :declined
+
+  @type filter_params :: %{
           optional(:date_of_birth) => String.t(),
           required(:doctor) => integer(),
           optional(:email) => String.t(),
-          optional(:ethnicity) => String.t(),
+          optional(:ethnicity) => ethnicity(),
           optional(:first_name) => String.t(),
-          optional(:gender) => String.t(),
+          required(:gender) => gender,
           optional(:last_name) => String.t(),
           optional(:preferred_language) => String.t(),
-          optional(:race) => String.t(),
-          optional(:since) => String.t()
+          optional(:race) => race(),
+          optional(:offices) => String.t(),
+          optional(:since) => String.t(),
+          optional(:show_inactive) => boolean()
         }
 
   @type insurance :: %{
@@ -91,7 +94,7 @@ defmodule Chroner.Clinical.Patient do
           subscriber_country: String.t(),
           subscriber_date_of_birth: String.t(),
           subscriber_first_name: String.t(),
-          subscriber_gender: String.t(),
+          subscriber_gender: gender(),
           subscriber_last_name: String.t(),
           subscriber_middle_name: String.t(),
           subscriber_social_security: String.t(),
@@ -100,7 +103,7 @@ defmodule Chroner.Clinical.Patient do
           subscriber_zip_code: String.t()
         }
 
-  @type gender :: :Male | :Female | :Other | :UNK | :ASKU
+  @type gender :: :"" | :Male | :Female | :Other | :UNK | :ASKU
 
   @type patient_flag :: %{
           archived: boolean(),
@@ -113,18 +116,68 @@ defmodule Chroner.Clinical.Patient do
           updated_at: String.t()
         }
 
-  @type update_params :: %{
-          required(:chart_id) => String.t(),
-          required(:date_of_birth) => String.t(),
+  @type patient_payment_profile ::
+          :""
+          | :Cash
+          | :Insurance
+          | :"Insurance Out of Network"
+          | :"Auto Accident"
+          | :"Worker's Comp"
+  @type patient_status :: :A | :I | :D
+  @type race :: :blank | :indian | :asian | :black | :hawaiian | :white | :declined
+
+  @type upsert_params :: %{
+          optional(:address) => String.t(),
+          optional(:auto_accident_insurance) => auto_accident_insurance,
+          optional(:cell_phone) => String.t(),
+          optional(:chart_id) => String.t(),
+          optional(:city) => String.t(),
+          optional(:copay) => String.t(),
+          optional(:custom_demographics) => list(custom_demographic),
+          optional(:date_of_birth) => String.t(),
+          optional(:date_of_first_appointment) => String.t(),
+          optional(:date_of_last_appointment) => String.t(),
+          optional(:default_pharmacy) => String.t(),
+          optional(:disable_sms_messages) => boolean(),
           required(:doctor) => integer(),
-          required(:email) => String.t(),
-          required(:ethnicity) => String.t(),
-          required(:first_name) => String.t(),
-          required(:gender) => String.t(),
-          required(:last_name) => String.t(),
-          required(:preferred_language) => String.t(),
-          required(:race) => String.t(),
-          required(:since) => String.t()
+          optional(:email) => String.t(),
+          optional(:emergency_contact_name) => String.t(),
+          optional(:emergency_contact_phone) => String.t(),
+          optional(:emergency_contact_relation) => String.t(),
+          optional(:employer_address) => String.t(),
+          optional(:employer_city) => String.t(),
+          optional(:employer_state) => String.t(),
+          optional(:employer_zip_code) => String.t(),
+          optional(:employer) => String.t(),
+          optional(:ethnicity) => ethnicity(),
+          optional(:first_name) => String.t(),
+          required(:gender) => gender,
+          optional(:home_phone) => String.t(),
+          optional(:last_name) => String.t(),
+          optional(:middle_name) => String.t(),
+          optional(:nick_name) => String.t(),
+          optional(:office_phone) => String.t(),
+          optional(:patient_flags_attached) => list(patient_flag),
+          optional(:patient_payment_profile) => patient_payment_profile(),
+          optional(:patient_photo_date) => String.t(),
+          optional(:patient_photo) => String.t(),
+          optional(:patient_status) => patient_status(),
+          optional(:preferred_language) => String.t(),
+          optional(:primary_care_physician) => String.t(),
+          optional(:primary_insurance) => insurance,
+          optional(:race) => race(),
+          optional(:referring_doctor) => Doctor.t(),
+          optional(:referring_source) => String.t(),
+          optional(:responsible_party_email) => String.t(),
+          optional(:responsible_party_name) => String.t(),
+          optional(:responsible_party_phone) => String.t(),
+          optional(:responsible_party_relation) => String.t(),
+          optional(:secondary_insurance) => insurance,
+          optional(:social_security_number) => String.t(),
+          optional(:state) => String.t(),
+          optional(:tertiary_insurance) => insurance,
+          optional(:workers_comp_insurance) => workers_comp_insurance,
+          optional(:zip_code) => String.t()
         }
 
   @type workers_comp_insurance :: %{
@@ -169,7 +222,7 @@ defmodule Chroner.Clinical.Patient do
           employer_state: String.t(),
           employer_zip_code: String.t(),
           employer: String.t(),
-          ethnicity: String.t(),
+          ethnicity: ethnicity(),
           first_name: String.t(),
           gender: gender,
           home_phone: String.t(),
@@ -181,14 +234,14 @@ defmodule Chroner.Clinical.Patient do
           offices: list(integer()),
           patient_flags_attached: list(patient_flag),
           patient_flags: list(patient_flag),
-          patient_payment_profile: String.t(),
+          patient_payment_profile: patient_payment_profile(),
           patient_photo_date: String.t(),
           patient_photo: String.t(),
-          patient_status: String.t(),
+          patient_status: patient_status(),
           preferred_language: String.t(),
           primary_care_physician: String.t(),
           primary_insurance: insurance,
-          race: String.t(),
+          race: race(),
           referring_doctor: Doctor.t(),
           referring_source: String.t(),
           responsible_party_email: String.t(),
