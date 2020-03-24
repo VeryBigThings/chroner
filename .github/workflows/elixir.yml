@@ -20,7 +20,7 @@ jobs:
     - name: Setup elixir
       uses: actions/setup-elixir@v1
       with:
-        elixir-version: 1.10
+        elixir-version: 1.10.2
         otp-version: 22.0
 
     - name: Prepare dialyzer PLT files to cache
