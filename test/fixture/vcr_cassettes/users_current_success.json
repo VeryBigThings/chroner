@@ -17,11 +17,11 @@
       "binary": false,
       "body": "{\"username\":\"rdecicca\",\"is_staff\":false,\"is_doctor\":true,\"doctor\":257817,\"id\":353230,\"practice_group\":279966,\"permissions\":{\"share_patients\":false,\"access_all_messages_for_practice_group\":false,\"show_patient_balance\":true,\"access_to_erx\":true,\"access_patient_payments\":false,\"emergency_access\":true,\"access_patient_analytics\":true,\"provider_dropdown\":false,\"create_and_update_patients\":true,\"appointment_provider_selection\":true,\"manage_templates\":true,\"access_to_message_center\":true,\"show_billing_summary\":true,\"access_patient_statements\":false,\"access_reports\":true,\"manage_accounts\":true,\"manage_permissions\":true,\"drug_interactions_check\":true,\"sign/lock_clinical_notes\":true,\"access_billing\":true,\"access_clinical_notes\":true,\"billing_administrator\":false,\"access_institutional_billing\":true,\"add_new_referring_sources\":false,\"export_patients\":true,\"use_ipad_ehr\":true,\"settings\":true,\"access_balance/ledger\":false,\"access_scheduling\":true,\"show_billing_tab\":true,\"create_and_update_contacts\":true,\"view_practice_group\":true}}",
       "headers": {
-        "Date": "Fri, 20 Mar 2020 19:56:58 GMT",
+        "Date": "Tue, 24 Mar 2020 21:33:03 GMT",
         "Content-Type": "application/json",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
-        "Set-Cookie": "__cfduid=da4fb5734876d8251a2161461ebdaf5991584734218; expires=Sun, 19-Apr-20 19:56:58 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
+        "Set-Cookie": "__cfduid=d180a917f4396915fa7b0f8d1057cc35d1585085583; expires=Thu, 23-Apr-20 21:33:03 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
         "x-xss-protection": "1; mode=block",
         "x-content-type-options": "nosniff",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
@@ -32,7 +32,7 @@
         "CF-Cache-Status": "DYNAMIC",
         "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
         "Server": "cloudflare",
-        "CF-RAY": "5771ffdfad28dfef-FRA"
+        "CF-RAY": "5793822098ddd6dd-FRA"
       },
       "status_code": 200,
       "type": "ok"

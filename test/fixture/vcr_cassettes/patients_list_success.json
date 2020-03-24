@@ -1,0 +1,86 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "accept": "application/json",
+        "authorization": "***"
+      },
+      "method": "get",
+      "options": {
+        "follow_redirect": "true",
+        "params": {
+          "last_name": "test"
+        }
+      },
+      "request_body": "",
+      "url": "https://app.drchrono.com/api/patients?last_name=test"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"previous\":null,\"results\":[{\"id\":86803949,\"chart_id\":\"TECH000001\",\"first_name\":\"Chroner\",\"middle_name\":null,\"last_name\":\"Test\",\"nick_name\":\"\",\"date_of_birth\":null,\"gender\":\"Male\",\"social_security_number\":\"\",\"race\":\"blank\",\"ethnicity\":\"blank\",\"preferred_language\":\"blank\",\"patient_photo\":null,\"patient_photo_date\":null,\"patient_payment_profile\":\"Cash\",\"patient_status\":\"A\",\"home_phone\":\"\",\"cell_phone\":\"\",\"office_phone\":\"\",\"email\":\"\",\"address\":\"\",\"city\":\"\",\"state\":null,\"zip_code\":null,\"emergency_contact_name\":\"\",\"emergency_contact_phone\":\"\",\"emergency_contact_relation\":\"\",\"employer\":\"\",\"employer_address\":\"\",\"employer_city\":\"\",\"employer_state\":\"\",\"employer_zip_code\":\"\",\"disable_sms_messages\":false,\"doctor\":257817,\"primary_care_physician\":null,\"date_of_first_appointment\":null,\"date_of_last_appointment\":null,\"offices\":[],\"default_pharmacy\":\"\",\"referring_source\":\"\",\"copay\":\"\",\"responsible_party_name\":\"\",\"responsible_party_relation\":\"\",\"responsible_party_phone\":\"\",\"responsible_party_email\":\"\",\"updated_at\":\"2020-03-24T14:07:05\"},{\"id\":86805607,\"chart_id\":\"TECH000002\",\"first_name\":\"Chroner\",\"middle_name\":null,\"last_name\":\"Test\",\"nick_name\":\"\",\"date_of_birth\":null,\"gender\":\"Male\",\"social_security_number\":\"\",\"race\":\"blank\",\"ethnicity\":\"blank\",\"preferred_language\":\"blank\",\"patient_photo\":null,\"patient_photo_date\":null,\"patient_payment_profile\":\"Cash\",\"patient_status\":\"A\",\"home_phone\":\"\",\"cell_phone\":\"\",\"office_phone\":\"\",\"email\":\"\",\"address\":\"\",\"city\":\"\",\"state\":null,\"zip_code\":null,\"emergency_contact_name\":\"\",\"emergency_contact_phone\":\"\",\"emergency_contact_relation\":\"\",\"employer\":\"\",\"employer_address\":\"\",\"employer_city\":\"\",\"employer_state\":\"\",\"employer_zip_code\":\"\",\"disable_sms_messages\":false,\"doctor\":257817,\"primary_care_physician\":null,\"date_of_first_appointment\":null,\"date_of_last_appointment\":null,\"offices\":[],\"default_pharmacy\":\"\",\"referring_source\":\"\",\"copay\":\"\",\"responsible_party_name\":\"\",\"responsible_party_relation\":\"\",\"responsible_party_phone\":\"\",\"responsible_party_email\":\"\",\"updated_at\":\"2020-03-24T16:15:14\"}],\"next\":null}",
+      "headers": {
+        "Date": "Tue, 24 Mar 2020 21:32:15 GMT",
+        "Content-Type": "application/json",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Set-Cookie": "__cfduid=d5469bba040c847002b1abcc5415fe1471585085535; expires=Thu, 23-Apr-20 21:32:15 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
+        "x-xss-protection": "1; mode=block",
+        "x-content-type-options": "nosniff",
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "Vary": "User-Agent, Authorization, Cookie",
+        "Allow": "GET, POST, HEAD, OPTIONS",
+        "Cache-Control": "no-cache",
+        "X-Frame-Options": "SAMEORIGIN",
+        "CF-Cache-Status": "DYNAMIC",
+        "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+        "Server": "cloudflare",
+        "CF-RAY": "579380f31af4d6dd-FRA"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "accept": "application/json",
+        "authorization": "***"
+      },
+      "method": "get",
+      "options": {
+        "follow_redirect": "true",
+        "params": {
+          "first_name": "chris"
+        }
+      },
+      "request_body": "",
+      "url": "https://app.drchrono.com/api/patients?first_name=chris"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"previous\":null,\"results\":[{\"id\":85753657,\"chart_id\":\"GECH000001\",\"first_name\":\"Chris\",\"middle_name\":null,\"last_name\":\"Genning\",\"nick_name\":\"\",\"date_of_birth\":\"1979-09-20\",\"gender\":\"Male\",\"social_security_number\":\"838-38-4948\",\"race\":\"white\",\"ethnicity\":\"hispanic\",\"preferred_language\":\"eng\",\"patient_photo\":\"https://d2fc6dbfcd48afd2d06b-f225dfe15042b50f93b1a0b13f17af27.ssl.cf5.rackcdn.com/patient_photos/76aa4814-5b7d-4609-bfd5-46a5479c2b7e.jpg\",\"patient_photo_date\":null,\"patient_payment_profile\":\"Cash\",\"patient_status\":\"A\",\"home_phone\":\"(844) 569-8628\",\"cell_phone\":\"(650) 215-6343\",\"office_phone\":\"(844) 569-8628\",\"email\":\"\",\"address\":\"100 Winchester Cir\",\"city\":\"Los Gatos\",\"state\":\"CA\",\"zip_code\":\"95032\",\"emergency_contact_name\":\"\",\"emergency_contact_phone\":\"\",\"emergency_contact_relation\":null,\"employer\":\"DrChrono\",\"employer_address\":\"328 Gibraltar Dr.\",\"employer_city\":\"Sunnyvale\",\"employer_state\":\"CA\",\"employer_zip_code\":\"94089\",\"disable_sms_messages\":true,\"doctor\":257817,\"primary_care_physician\":\"\",\"date_of_first_appointment\":\"2020-01-17\",\"date_of_last_appointment\":\"2020-01-23\",\"offices\":[274103],\"default_pharmacy\":\"0506622\",\"referring_source\":null,\"copay\":\"\",\"responsible_party_name\":null,\"responsible_party_relation\":null,\"responsible_party_phone\":null,\"responsible_party_email\":null,\"updated_at\":\"2020-01-18T07:30:58\"},{\"id\":85753665,\"chart_id\":\"BRCH000001\",\"first_name\":\"Chrissy\",\"middle_name\":null,\"last_name\":\"Bright\",\"nick_name\":\"\",\"date_of_birth\":\"1971-09-10\",\"gender\":\"Female\",\"social_security_number\":\"111-11-1111\",\"race\":\"black\",\"ethnicity\":\"not_hispanic\",\"preferred_language\":\"eng\",\"patient_photo\":\"https://d2fc6dbfcd48afd2d06b-f225dfe15042b50f93b1a0b13f17af27.ssl.cf5.rackcdn.com/patient_photos/3bd6f9a1-a88c-4008-9229-ff581f4ff871.jpg\",\"patient_photo_date\":null,\"patient_payment_profile\":\"Cash\",\"patient_status\":\"A\",\"home_phone\":\"(844) 569-8628\",\"cell_phone\":\"(650) 215-6343\",\"office_phone\":\"(844) 569-8628\",\"email\":\"\",\"address\":\"1600 Amphitheatre Pkwy\",\"city\":\"Mountain View\",\"state\":\"CA\",\"zip_code\":\"94040\",\"emergency_contact_name\":\"\",\"emergency_contact_phone\":\"\",\"emergency_contact_relation\":null,\"employer\":\"DrChrono\",\"employer_address\":\"328 Gibraltar Dr.\",\"employer_city\":\"Sunnyvale\",\"employer_state\":\"CA\",\"employer_zip_code\":\"94089\",\"disable_sms_messages\":true,\"doctor\":257817,\"primary_care_physician\":\"\",\"date_of_first_appointment\":\"2020-01-20\",\"date_of_last_appointment\":\"2020-01-22\",\"offices\":[274103],\"default_pharmacy\":\"0501507\",\"referring_source\":null,\"copay\":\"\",\"responsible_party_name\":null,\"responsible_party_relation\":null,\"responsible_party_phone\":null,\"responsible_party_email\":null,\"updated_at\":\"2020-01-17T14:40:41\"}],\"next\":null}",
+      "headers": {
+        "Date": "Tue, 24 Mar 2020 21:32:15 GMT",
+        "Content-Type": "application/json",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Set-Cookie": "__cfduid=d5469bba040c847002b1abcc5415fe1471585085535; expires=Thu, 23-Apr-20 21:32:15 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
+        "x-xss-protection": "1; mode=block",
+        "x-content-type-options": "nosniff",
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "Vary": "User-Agent, Authorization, Cookie",
+        "Allow": "GET, POST, HEAD, OPTIONS",
+        "Cache-Control": "no-cache",
+        "X-Frame-Options": "SAMEORIGIN",
+        "CF-Cache-Status": "DYNAMIC",
+        "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+        "Server": "cloudflare",
+        "CF-RAY": "579380f4e807d6dd-FRA"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

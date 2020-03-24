@@ -18,11 +18,11 @@
       "binary": false,
       "body": "{\"previous\":null,\"results\":[{\"id\":257817,\"first_name\":\"Rich\",\"last_name\":\"DeCicca\",\"email\":\"rich.decicca@verybigthings.com\",\"specialty\":\"Acupuncture\",\"job_title\":\"API/Developer\",\"suffix\":null,\"website\":null,\"home_phone\":\"\",\"office_phone\":\"3054929687\",\"cell_phone\":\"3054929687\",\"country\":\"US\",\"timezone\":\"US/Eastern\",\"npi_number\":\"\",\"group_npi_number\":null,\"practice_group\":279966,\"practice_group_name\":\"\",\"profile_picture\":\"\",\"is_account_suspended\":false}],\"next\":null}",
       "headers": {
-        "Date": "Tue, 24 Mar 2020 21:33:02 GMT",
+        "Date": "Tue, 24 Mar 2020 21:32:38 GMT",
         "Content-Type": "application/json",
         "Content-Length": "469",
         "Connection": "keep-alive",
-        "Set-Cookie": "__cfduid=d2b7dcb58f3f8c7e15fa69295651241bf1585085581; expires=Thu, 23-Apr-20 21:33:01 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
+        "Set-Cookie": "__cfduid=d5225fc03d727d99136d28f55719040451585085558; expires=Thu, 23-Apr-20 21:32:38 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
         "x-xss-protection": "1; mode=block",
         "x-content-type-options": "nosniff",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
@@ -34,7 +34,7 @@
         "CF-Cache-Status": "DYNAMIC",
         "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
         "Server": "cloudflare",
-        "CF-RAY": "57938214b8b2d6dd-FRA"
+        "CF-RAY": "57938185f98cd6dd-FRA"
       },
       "status_code": 200,
       "type": "ok"
@@ -42,41 +42,41 @@
   },
   {
     "request": {
-      "body": "",
+      "body": "color=%237B7B7B&doctor=257817&duration=123&name=Test+name&online_scheduling=true&reason=Reason",
       "headers": {
-        "accept": "application/json",
-        "authorization": "***"
+        "authorization": "***",
+        "content-type": "application/x-www-form-urlencoded",
+        "accept": "application/json"
       },
-      "method": "get",
+      "method": "post",
       "options": {
         "follow_redirect": "true"
       },
       "request_body": "",
-      "url": "https://app.drchrono.com/api/doctors/257817"
+      "url": "https://app.drchrono.com/api/appointment_profiles"
     },
     "response": {
       "binary": false,
-      "body": "{\"id\":257817,\"first_name\":\"Rich\",\"last_name\":\"DeCicca\",\"email\":\"rich.decicca@verybigthings.com\",\"specialty\":\"Acupuncture\",\"job_title\":\"API/Developer\",\"suffix\":null,\"website\":null,\"home_phone\":\"\",\"office_phone\":\"3054929687\",\"cell_phone\":\"3054929687\",\"country\":\"US\",\"timezone\":\"US/Eastern\",\"npi_number\":\"\",\"group_npi_number\":null,\"practice_group\":279966,\"practice_group_name\":\"\",\"profile_picture\":\"\",\"is_account_suspended\":false}",
+      "body": "{\"id\":283136,\"name\":\"Test name\",\"sort_order\":999,\"color\":\"#7B7B7B\",\"doctor\":257817,\"reason\":\"Reason\",\"duration\":123,\"online_scheduling\":true,\"archived\":false}",
       "headers": {
-        "Date": "Tue, 24 Mar 2020 21:33:02 GMT",
+        "Date": "Tue, 24 Mar 2020 21:32:39 GMT",
         "Content-Type": "application/json",
-        "Content-Length": "427",
+        "Content-Length": "158",
         "Connection": "keep-alive",
-        "Set-Cookie": "__cfduid=d3006235cce32a2b9f811b36da439a31d1585085582; expires=Thu, 23-Apr-20 21:33:02 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
+        "Set-Cookie": "__cfduid=d543cfbc4f88f3e6f3df857996fc0fa191585085559; expires=Thu, 23-Apr-20 21:32:39 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
         "x-xss-protection": "1; mode=block",
         "x-content-type-options": "nosniff",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "Vary": "User-Agent, Authorization, Cookie",
-        "Allow": "GET, HEAD, OPTIONS",
+        "Allow": "GET, POST, HEAD, OPTIONS",
         "Cache-Control": "no-cache",
         "X-Frame-Options": "SAMEORIGIN",
-        "Accept-Ranges": "bytes",
         "CF-Cache-Status": "DYNAMIC",
         "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
         "Server": "cloudflare",
-        "CF-RAY": "579382187b2bd6dd-FRA"
+        "CF-RAY": "579381893c4bd6dd-FRA"
       },
-      "status_code": 200,
+      "status_code": 201,
       "type": "ok"
     }
   }

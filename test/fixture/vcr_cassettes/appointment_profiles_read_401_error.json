@@ -11,17 +11,17 @@
         "follow_redirect": "true"
       },
       "request_body": "",
-      "url": "https://app.drchrono.com/api/doctors"
+      "url": "https://app.drchrono.com/api/appointment_profiles/0"
     },
     "response": {
       "binary": false,
       "body": "Authorization failed.",
       "headers": {
-        "Date": "Fri, 20 Mar 2020 19:57:10 GMT",
+        "Date": "Tue, 24 Mar 2020 21:42:23 GMT",
         "Content-Type": "text/html; charset=utf-8",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
-        "Set-Cookie": "__cfduid=dfa2e5c560b342123b14e95bb73e1642e1584734230; expires=Sun, 19-Apr-20 19:57:10 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
+        "Set-Cookie": "__cfduid=d0fb13813817be9a98a9b8b776baff4e91585086142; expires=Thu, 23-Apr-20 21:42:22 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
         "x-xss-protection": "1; mode=block",
         "x-content-type-options": "nosniff",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
@@ -31,7 +31,7 @@
         "CF-Cache-Status": "DYNAMIC",
         "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
         "Server": "cloudflare",
-        "CF-RAY": "577200299f0edfef-FRA"
+        "CF-RAY": "57938fc94eebcbc8-VIE"
       },
       "status_code": 401,
       "type": "ok"

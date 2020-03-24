@@ -6,36 +6,34 @@
         "accept": "application/json",
         "authorization": "***"
       },
-      "method": "get",
+      "method": "delete",
       "options": {
         "follow_redirect": "true"
       },
       "request_body": "",
-      "url": "https://app.drchrono.com/api/users/0"
+      "url": "https://app.drchrono.com/api/patients/0"
     },
     "response": {
       "binary": false,
-      "body": "{\"detail\":\"Not found.\"}",
+      "body": "Authorization failed.",
       "headers": {
-        "Date": "Tue, 24 Mar 2020 21:32:47 GMT",
-        "Content-Type": "application/json",
-        "Content-Length": "23",
+        "Date": "Tue, 24 Mar 2020 21:32:22 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
-        "Set-Cookie": "__cfduid=d23d07b0c7c5177d1b624539d4f28f9aa1585085566; expires=Thu, 23-Apr-20 21:32:46 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
+        "Set-Cookie": "__cfduid=d93734b006360b3166e9998d1abedd7641585085542; expires=Thu, 23-Apr-20 21:32:22 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
         "x-xss-protection": "1; mode=block",
         "x-content-type-options": "nosniff",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "Vary": "User-Agent, Authorization, Cookie",
-        "X-Sentry-ID": "281e234d55544575ac22c85effdd77bc",
-        "Allow": "GET, HEAD, OPTIONS",
-        "Cache-Control": "no-cache",
         "X-Frame-Options": "SAMEORIGIN",
+        "WWW-Authenticate": "Bearer error=\"invalid_token\",error_description=\"The access token is invalid.\"",
         "CF-Cache-Status": "DYNAMIC",
         "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
         "Server": "cloudflare",
-        "CF-RAY": "579381b88f5bd6dd-FRA"
+        "CF-RAY": "57938120d9f7d6dd-FRA"
       },
-      "status_code": 404,
+      "status_code": 401,
       "type": "ok"
     }
   }
