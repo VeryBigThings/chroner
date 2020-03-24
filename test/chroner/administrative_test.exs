@@ -1,17 +1,9 @@
 defmodule Chroner.AdministrativeTest do
-  use ExUnit.Case, async: false
-  use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
+  use Chroner.Support.ClientCase
 
   import Chroner.Administrative
 
   alias Chroner.Administrative.{Doctor, User}
-  alias OAuth2.Response
-
-  setup do
-    valid_client = Chroner.client(access_token: System.get_env("ACCESS_TOKEN"))
-    invalid_client = Chroner.client(access_token: "INVALID_TOKEN")
-    {:ok, %{valid_client: valid_client, invalid_client: invalid_client}}
-  end
 
   # --------------------------------------------------------------------
   # Doctors
@@ -126,6 +118,8 @@ defmodule Chroner.AdministrativeTest do
   end
 
   describe "user_groups_read/2" do
+    # TODO: `gets existing user_group by id` test
+
     test "fails due to unexisting user_groups", %{valid_client: client} do
       use_cassette "user_groups_read_404_error" do
         assert {:error, %Response{status_code: 404}} = user_groups_read(client, 0)
