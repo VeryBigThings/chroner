@@ -5,11 +5,43 @@ defmodule Chroner.V4.Clinical do
 
   import Chroner.V4.Resource
 
-  alias __MODULE__.{AppointmentProfile, Patient}
+  alias __MODULE__.{Appointment, AppointmentProfile, Patient}
 
   @type id :: integer()
   @type client :: OAuth2.Client.t()
   @type error :: {:error, OAuth2.Response.t()}
+
+  # --------------------------------------------------------------------
+  # Appointments
+  # --------------------------------------------------------------------
+
+  @doc "Creates new appointments resource."
+  @spec appointments_create(client, Appointment.upsert_params()) ::
+          {:ok, Appointment.t()} | error
+  def appointments_create(client, params), do: create(client, params, Appointment)
+
+  @doc "Deletes appointments resource by ID."
+  @spec appointments_delete(client, id) ::
+          :ok | error
+  def appointments_delete(client, id), do: delete(client, id, Appointment)
+
+  @doc "Fetches all appointments resources."
+  @spec appointments_list(client, Appointment.filter_params() | %{}) ::
+          {:ok, [Appointment.t()] | []} | error
+  def appointments_list(client, filters \\ %{}), do: list(client, Appointment, filters)
+
+  @doc "Partialky updates existing appointments resource by ID and params."
+  @spec appointments_partial_update(client, id, Appointment.upsert_params()) :: :ok | error
+  def appointments_partial_update(client, id, params),
+    do: partial_update(client, id, params, Appointment)
+
+  @doc "Fetches appointments resource by ID."
+  @spec appointments_read(client, id) :: {:ok, Appointment.t()} | error
+  def appointments_read(client, id), do: read(client, id, Appointment)
+
+  @doc "Updates existing appointments resource by ID and params."
+  @spec appointments_update(client, id, Appointment.upsert_params()) :: :ok | error
+  def appointments_update(client, id, params), do: update(client, id, params, Appointment)
 
   # --------------------------------------------------------------------
   # Appointment Profiles
@@ -65,12 +97,12 @@ defmodule Chroner.V4.Clinical do
   @spec patients_delete(client, id) ::
           :ok | error
   def patients_delete(client, id), do: delete(client, id, Patient)
-  @doc "Fetches all patients resources."
 
+  @doc "Fetches all patients resources."
   @spec patients_list(client, Patient.filter_params() | %{}) :: {:ok, [Patient.t()] | []} | error
   def patients_list(client, filters \\ %{}), do: list(client, Patient, filters)
-  @doc "Fetches patients resource by ID."
 
+  @doc "Fetches patients resource by ID."
   @spec patients_read(client, id) :: {:ok, Patient.t()} | error
   def patients_read(client, id), do: read(client, id, Patient)
 
