@@ -60,11 +60,11 @@ defmodule Chroner.V4.Clinical.Patient do
 
   @type filter_params :: %{
           optional(:date_of_birth) => String.t(),
-          required(:doctor) => integer(),
+          optional(:doctor) => integer(),
           optional(:email) => String.t(),
           optional(:ethnicity) => ethnicity(),
           optional(:first_name) => String.t(),
-          required(:gender) => gender,
+          optional(:gender) => gender,
           optional(:last_name) => String.t(),
           optional(:preferred_language) => String.t(),
           optional(:race) => race(),

@@ -72,6 +72,4 @@ defmodule Chroner.V4.Administrative.Permissions do
     field :use_ipad_ehr, :boolean
     field :view_practice_group, :boolean
   end
-
-  def plural, do: "permissions"
 end

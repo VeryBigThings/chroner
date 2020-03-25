@@ -4,7 +4,7 @@ defmodule Chroner.V4.Clinical.AppointmentProfile do
   use Chroner.Schema
 
   @type filter_params :: %{
-          required(:doctor) => integer(),
+          optional(:doctor) => integer(),
           optional(:show_archived) => boolean()
         }
 
