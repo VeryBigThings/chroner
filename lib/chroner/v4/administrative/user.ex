@@ -1,7 +1,7 @@
 defmodule Chroner.V4.Administrative.User do
   @moduledoc "User"
 
-  use Chroner.V4.Schema
+  use Chroner.Schema
 
   alias Chroner.V4.Administrative.Permissions
 

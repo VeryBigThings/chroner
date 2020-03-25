@@ -1,4 +1,4 @@
-defmodule Chroner.V4.Schema do
+defmodule Chroner.Schema do
   @moduledoc """
   Schema module for setting up default schema config
   """

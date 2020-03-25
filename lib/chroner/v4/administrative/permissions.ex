@@ -1,7 +1,7 @@
 defmodule Chroner.V4.Administrative.Permissions do
   @moduledoc "Permissions"
 
-  use Chroner.V4.Schema
+  use Chroner.Schema
 
   @type t :: %__MODULE__{
           :access_all_messages_for_practice_group => boolean(),

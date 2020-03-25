@@ -1,7 +1,7 @@
 defmodule Chroner.V4.Clinical.Patient do
   @moduledoc "Patient schema according to https://rdecicca.drchrono.com/openapi-schema and https://rdecicca.drchrono.com/api-docs-old/v4/documentation#apipatients"
 
-  use Chroner.V4.Schema
+  use Chroner.Schema
 
   alias Chroner.V4.Administrative.Doctor
 

@@ -1,7 +1,7 @@
 defmodule Chroner.V4.Clinical.AppointmentProfile do
   @moduledoc "Appointment profile schema according to https://rdecicca.drchrono.com/openapi-schema and https://rdecicca.drchrono.com/api-docs-old/v4/documentation#apiappointment_profiles"
 
-  use Chroner.V4.Schema
+  use Chroner.Schema
 
   @type filter_params :: %{
           required(:doctor) => integer(),

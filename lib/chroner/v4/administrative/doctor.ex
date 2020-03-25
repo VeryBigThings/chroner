@@ -1,7 +1,7 @@
 defmodule Chroner.V4.Administrative.Doctor do
   @moduledoc "Doctor"
 
-  use Chroner.V4.Schema
+  use Chroner.Schema
 
   @type t :: %__MODULE__{
           cell_phone: String.t(),

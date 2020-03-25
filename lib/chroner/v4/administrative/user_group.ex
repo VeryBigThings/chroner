@@ -1,7 +1,7 @@
 defmodule Chroner.V4.Administrative.UserGroup do
   @moduledoc "User Group"
 
-  use Chroner.V4.Schema
+  use Chroner.Schema
 
   @type t :: %__MODULE__{
           archived: boolean(),
