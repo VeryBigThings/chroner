@@ -6,12 +6,12 @@ defmodule Chroner.V4.Clinical.Appointment do
   alias Chroner.V4.Clinical.{
     BillingNote,
     ClinicalNote,
-    CustomField,
-    CustomVital,
     Reminder,
     StatusTransitions,
     Vitals
   }
+
+  alias Chroner.V4.Clinical.Customs.{CustomField, CustomVital}
 
   @type billing_status ::
           :"Auto Accident Claim"
