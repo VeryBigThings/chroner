@@ -1,10 +1,7 @@
-defmodule Chroner.Administrative.Permissions do
+defmodule Chroner.V4.Administrative.Permissions do
   @moduledoc "Permissions"
 
-  use Ecto.Schema
-
-  @primary_key false
-  @derive [Poison.Encoder]
+  use Chroner.V4.Schema
 
   @type t :: %__MODULE__{
           :access_all_messages_for_practice_group => boolean(),

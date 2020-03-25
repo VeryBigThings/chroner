@@ -1,10 +1,7 @@
-defmodule Chroner.Administrative.UserGroup do
+defmodule Chroner.V4.Administrative.UserGroup do
   @moduledoc "User Group"
 
-  use Ecto.Schema
-
-  @primary_key false
-  @derive [Poison.Encoder]
+  use Chroner.V4.Schema
 
   @type t :: %__MODULE__{
           archived: boolean(),

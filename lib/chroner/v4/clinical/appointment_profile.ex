@@ -1,10 +1,7 @@
-defmodule Chroner.Clinical.AppointmentProfile do
+defmodule Chroner.V4.Clinical.AppointmentProfile do
   @moduledoc "Appointment profile schema according to https://rdecicca.drchrono.com/openapi-schema and https://rdecicca.drchrono.com/api-docs-old/v4/documentation#apiappointment_profiles"
 
-  use Ecto.Schema
-
-  @primary_key false
-  @derive [Poison.Encoder]
+  use Chroner.V4.Schema
 
   @type filter_params :: %{
           required(:doctor) => integer(),

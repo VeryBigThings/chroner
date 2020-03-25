@@ -1,12 +1,9 @@
-defmodule Chroner.Administrative.User do
+defmodule Chroner.V4.Administrative.User do
   @moduledoc "User"
 
-  use Ecto.Schema
+  use Chroner.V4.Schema
 
-  @primary_key false
-  @derive [Poison.Encoder]
-
-  alias Chroner.Administrative.Permissions
+  alias Chroner.V4.Administrative.Permissions
 
   @type t :: %__MODULE__{
           doctor: integer(),

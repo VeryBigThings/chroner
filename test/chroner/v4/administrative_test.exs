@@ -1,5 +1,5 @@
-defmodule Chroner.AdministrativeTest do
-  use Chroner.Support.APICase
+defmodule Chroner.V4.AdministrativeTest do
+  use Chroner.Support.APICase, api_version: "V4"
 
   # --------------------------------------------------------------------
   # Doctors

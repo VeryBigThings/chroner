@@ -1,5 +1,5 @@
-defmodule Chroner.Clinical.AppointmentProfilesTest do
-  use Chroner.Support.APICase
+defmodule Chroner.V4.Clinical.AppointmentProfilesTest do
+  use Chroner.Support.APICase, api_version: "V4"
 
   describe "appointment_profiles_create/2" do
     test "creates new appointment profile", %{valid_client: client} do

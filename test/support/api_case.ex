@@ -5,15 +5,17 @@ defmodule Chroner.Support.APICase do
 
   use ExUnit.CaseTemplate
 
-  using do
+  using opts do
+    api_version = Keyword.get(opts, :api_version, "V4")
+
     quote do
       use ExUnit.Case, async: true
       use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
 
-      import Chroner.{Administrative, Clinical}
+      import unquote(Module.concat(Chroner, api_version)).{Administrative, Clinical}
 
-      alias Chroner.Administrative.{Doctor, User}
-      alias Chroner.Clinical.{AppointmentProfile, Patient}
+      alias unquote(Module.concat(Chroner, api_version)).Administrative.{Doctor, User}
+      alias unquote(Module.concat(Chroner, api_version)).Clinical.{AppointmentProfile, Patient}
       alias OAuth2.Response
     end
   end

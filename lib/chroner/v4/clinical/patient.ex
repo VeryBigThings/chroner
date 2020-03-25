@@ -1,12 +1,9 @@
-defmodule Chroner.Clinical.Patient do
+defmodule Chroner.V4.Clinical.Patient do
   @moduledoc "Patient schema according to https://rdecicca.drchrono.com/openapi-schema and https://rdecicca.drchrono.com/api-docs-old/v4/documentation#apipatients"
 
-  use Ecto.Schema
+  use Chroner.V4.Schema
 
-  @primary_key false
-  @derive [Poison.Encoder]
-
-  alias Chroner.Administrative.Doctor
+  alias Chroner.V4.Administrative.Doctor
 
   @type auto_accident_insurance :: %{
           auto_accident_case_number: String.t(),

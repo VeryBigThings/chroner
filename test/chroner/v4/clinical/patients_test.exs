@@ -1,5 +1,5 @@
-defmodule Chroner.Clinical.PatientsTest do
-  use Chroner.Support.APICase
+defmodule Chroner.V4.Clinical.PatientsTest do
+  use Chroner.Support.APICase, api_version: "V4"
 
   describe "patients_create/2" do
     test "creates new patient", %{valid_client: client} do
@@ -136,7 +136,7 @@ defmodule Chroner.Clinical.PatientsTest do
       end
     end
 
-    test "failes to update unexisting patient", %{valid_client: client} do
+    test "fails to update unexisting patient", %{valid_client: client} do
       use_cassette "patients_update_404_error" do
         assert {:error, %Response{status_code: 404}} = patients_update(client, 0, %{})
       end

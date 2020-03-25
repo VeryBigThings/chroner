@@ -1,10 +1,10 @@
 # Chroner
 
-This package allows Elixir developers to easily access the Dr.Chrono [API](https://app.drchrono.com/api-docs). Implementation is a thin layer of abstraction over [ouath2](https://github.com/scrogson/oauth2) elixir library which encapsulates REST calls and OAuth mechanism.
+This package allows Elixir developers to easily access the Dr.Chrono [API](https://app.drchrono.com/api-docs). Implementation is a thin layer of abstraction over [ouath2](https://github.com/scrogson/oauth2) elixir library which encapsulates REST calls and OAuth mechanism. Currently only available version is `V4`.
 
 Entities are represented with the help of [ecto embedded schemas](https://hexdocs.pm/ecto/Ecto.Schema.html#t:embedded_schema/0) and casted with [ecto morph](https://github.com/Adzz/ecto_morph).
 
-Codebase is split according to API domains to: Authorization, Administrative, Clinical, Biling and Practice management contexts.
+Codebase is split according to API versions (curently just `V4`) and domains: Authorization, Administrative, Clinical, Biling and Practice management contexts.
 
 ## Installation
 
@@ -30,11 +30,13 @@ iex(2)> Chroner.users_current(client)
 
 ## Contribution
 
-You're very welcome to contribute to the project by adding missing endpoints, tests or documentation. If you decide to contribute please evaluate your code with [`make evaluate`](https://github.com/VeryBigThings/chroner/blob/master/Makefile#5) which will make sure that code is: formatted, linted, statically analyzed and tested. Same evalution is being executed on the CI.
+You're very welcome to contribute to the project by adding missing endpoints, tests, documentation or even new api versions. If you decide to contribute please evaluate your code with [`make evaluate`](https://github.com/VeryBigThings/chroner/blob/master/Makefile#5) which will make sure that code is: formatted, linted, statically analyzed and tested. Same evalution is being executed on the CI.
 
 Always create a new branch and request a PR from code owner.
 
-All endpoints and API resources are mapped from [official documentation](https://app.drchrono.com/api-docs/). If you want to add new endpoint, find a belonging context and define it there.
+All endpoints and API resources are mapped from https://app.drchrono.com/api-docs/ and https://rdecicca.drchrono.com/api-docs-old/v4/documentation#apiappointments. If you want to add new endpoint, find a belonging context and define it there.
+
+All schemas/entites are mapped according to [api schema](https://rdecicca.drchrono.com/openapi-schema).
 
 ### Testing
 
@@ -72,6 +74,7 @@ user:write
 Exporting token:
 ```bash
 export ACCESS_TOKEN=XXXXXXXXXXXXXXXXXXXXXXXXX
+mix test
 ```
 or:
 ```bash

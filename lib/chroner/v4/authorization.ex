@@ -1,4 +1,4 @@
-defmodule Chroner.Authorization do
+defmodule Chroner.V4.Authorization do
   @moduledoc "Authorization"
 
   use OAuth2.Strategy

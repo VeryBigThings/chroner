@@ -1,4 +1,4 @@
-defmodule Chroner.Resource do
+defmodule Chroner.V4.Resource do
   @moduledoc false
 
   alias OAuth2.{Client, Response}

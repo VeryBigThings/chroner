@@ -1,9 +1,9 @@
-defmodule Chroner.Administrative do
+defmodule Chroner.V4.Administrative do
   @moduledoc """
   Create and manage administrative resources.
   """
 
-  import Chroner.Resource
+  import Chroner.V4.Resource
 
   alias __MODULE__.{Doctor, User, UserGroup}
 

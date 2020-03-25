@@ -1,10 +1,7 @@
-defmodule Chroner.Administrative.Doctor do
+defmodule Chroner.V4.Administrative.Doctor do
   @moduledoc "Doctor"
 
-  use Ecto.Schema
-
-  @primary_key false
-  @derive [Poison.Encoder]
+  use Chroner.V4.Schema
 
   @type t :: %__MODULE__{
           cell_phone: String.t(),

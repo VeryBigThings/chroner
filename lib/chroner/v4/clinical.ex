@@ -1,9 +1,9 @@
-defmodule Chroner.Clinical do
+defmodule Chroner.V4.Clinical do
   @moduledoc """
   Create and manage clinical resources.
   """
 
-  import Chroner.Resource
+  import Chroner.V4.Resource
 
   alias __MODULE__.{AppointmentProfile, Patient}
 
