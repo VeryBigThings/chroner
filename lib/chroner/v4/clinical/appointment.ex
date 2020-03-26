@@ -82,25 +82,25 @@ defmodule Chroner.V4.Clinical.Appointment do
         }
 
   @type upsert_params :: %{
+          optional(:allow_overlapping) => boolean(),
+          optional(:billing_status) => billing_status(),
+          optional(:color) => String.t(),
+          optional(:custom_fields) => String.t(),
+          optional(:custom_vitals) => [CustomVital.upsert_params()],
+          optional(:is_walk_in) => boolean(),
+          optional(:notes) => String.t(),
+          optional(:profile) => integer(),
+          optional(:reason) => String.t(),
+          optional(:reminder_profile) => integer(),
+          optional(:reminders) => String.t(),
+          optional(:status) => status(),
+          optional(:vitals) => Vitals.upsert_params(),
           required(:doctor) => integer(),
           required(:duration) => integer(),
           required(:exam_room) => integer(),
           required(:office) => integer(),
           required(:patient) => integer() | nil,
-          required(:scheduled_time) => String.t(),
-          optional(:color) => String.t(),
-          optional(:custom_vitals) => [CustomVital.upsert_params()],
-          optional(:notes) => String.t(),
-          optional(:profile) => integer(),
-          optional(:reason) => String.t(),
-          optional(:reminder_profile) => integer(),
-          optional(:status) => status(),
-          optional(:vitals) => Vitals.upsert_params(),
-          optional(:billing_status) => billing_status(),
-          optional(:reminders) => String.t(),
-          optional(:allow_overlapping) => boolean(),
-          optional(:is_walk_in) => boolean(),
-          optional(:custom_fields) => String.t()
+          required(:scheduled_time) => String.t()
         }
 
   @type status ::

@@ -6,7 +6,13 @@ defmodule Chroner.V4.Clinical.Patient do
   alias Chroner.V4.Administrative.Doctor
   alias Chroner.V4.Clinical.Customs.CustomDemographic
   alias Chroner.V4.Clinical.{PatientFlag, PatientFlagAttached}
-  alias Chroner.V4.Clinical.Insurances.{AutoAccidentInsurance, Insurance, WorkerCompInsurance}
+
+  alias Chroner.V4.Clinical.Patient.{
+    AutoAccidentInsurance,
+    Insurance,
+    ReferringDoctor,
+    WorkerCompInsurance
+  }
 
   @type ethnicity :: :blank | :hispanic | :not_hispanic | :declined
 
@@ -82,7 +88,7 @@ defmodule Chroner.V4.Clinical.Patient do
           primary_care_physician: String.t(),
           primary_insurance: Insurance.t(),
           race: race(),
-          referring_doctor: Doctor.t(),
+          referring_doctor: ReferringDoctor.t(),
           referring_source: String.t(),
           responsible_party_email: String.t(),
           responsible_party_name: String.t(),
@@ -137,7 +143,7 @@ defmodule Chroner.V4.Clinical.Patient do
           optional(:primary_care_physician) => String.t(),
           optional(:primary_insurance) => Insurance.upsert_params(),
           optional(:race) => race(),
-          optional(:referring_doctor) => Doctor.t(),
+          optional(:referring_doctor) => ReferringDoctor.upsert_params(),
           optional(:referring_source) => String.t(),
           optional(:responsible_party_email) => String.t(),
           optional(:responsible_party_name) => String.t(),

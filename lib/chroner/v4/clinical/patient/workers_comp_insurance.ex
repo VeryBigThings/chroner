@@ -1,4 +1,4 @@
-defmodule Chroner.V4.Clinical.Insurances.WorkerCompInsurance do
+defmodule Chroner.V4.Clinical.Patient.WorkerCompInsurance do
   @moduledoc "Appointment profile schema according to https://rdecicca.drchrono.com/openapi-schema"
 
   use Chroner.Schema
