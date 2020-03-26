@@ -5,6 +5,12 @@ defmodule Chroner.V4.Clinical.Office do
 
   alias Chroner.V4.Clinical.Office.{ExamRoom, OnlineTimeslot}
 
+  @type list_params :: %{
+          optional(:cursor) => String.t(),
+          optional(:doctor) => integer(),
+          optional(:page_size) => integer()
+        }
+
   @type t :: %__MODULE__{
           address: String.t(),
           archived: boolean(),
@@ -22,6 +28,11 @@ defmodule Chroner.V4.Clinical.Office do
           start_time: String.t(),
           state: String.t(),
           zip_code: String.t()
+        }
+
+  @type upsert_params :: %{
+          optional(:online_scheduling) => String.t(),
+          optional(:online_timeslots) => [OnlineTimeslot.upsert_params()]
         }
 
   embedded_schema do

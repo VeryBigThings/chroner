@@ -3,10 +3,20 @@ defmodule Chroner.V4.Clinical.Office.OnlineTimeslot do
 
   use Chroner.Schema
 
+  @type day :: 0..6
+  @type hour :: 0..24
+  @type minute :: 0 | 15 | 30 | 45
+
   @type t :: %__MODULE__{
-          day: 0..6,
-          hour: 0..24,
-          minute: 0 | 15 | 30 | 45
+          day: day(),
+          hour: hour(),
+          minute: minute()
+        }
+
+  @type upsert_params :: %{
+          required(:day) => day(),
+          required(:hour) => hour(),
+          required(:minute) => minute()
         }
 
   embedded_schema do

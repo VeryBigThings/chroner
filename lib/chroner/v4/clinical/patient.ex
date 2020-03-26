@@ -16,7 +16,10 @@ defmodule Chroner.V4.Clinical.Patient do
 
   @type ethnicity :: :blank | :hispanic | :not_hispanic | :declined
 
-  @type filter_params :: %{
+  @type gender :: :"" | :Male | :Female | :Other | :UNK | :ASKU
+
+  @type list_params :: %{
+          optional(:cursor) => String.t(),
           optional(:date_of_birth) => String.t(),
           optional(:doctor) => integer(),
           optional(:email) => String.t(),
@@ -24,14 +27,13 @@ defmodule Chroner.V4.Clinical.Patient do
           optional(:first_name) => String.t(),
           optional(:gender) => gender,
           optional(:last_name) => String.t(),
+          optional(:page_size) => integer(),
           optional(:preferred_language) => String.t(),
           optional(:race) => race(),
           optional(:offices) => String.t(),
           optional(:since) => String.t(),
           optional(:show_inactive) => boolean()
         }
-
-  @type gender :: :"" | :Male | :Female | :Other | :UNK | :ASKU
 
   @type patient_payment_profile ::
           :""

@@ -5,6 +5,12 @@ defmodule Chroner.V4.Administrative.User do
 
   alias Chroner.V4.Administrative.Permissions
 
+  @type list_params :: %{
+          optional(:cursor) => String.t(),
+          optional(:doctor) => integer(),
+          optional(:page_size) => integer()
+        }
+
   @type t :: %__MODULE__{
           doctor: integer(),
           id: integer(),

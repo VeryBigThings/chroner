@@ -24,11 +24,13 @@ defmodule Chroner.V4.Clinical.Appointment do
           | :Settled
           | :"Worker's Comp Claim"
 
-  @type filter_params :: %{
+  @type list_params :: %{
+          optional(:cursor) => String.t(),
           optional(:date) => String.t(),
           optional(:date_range) => String.t(),
           optional(:doctor) => integer(),
           optional(:office) => integer(),
+          optional(:page_size) => integer(),
           optional(:patient) => integer(),
           optional(:since) => String.t(),
           optional(:status) => String.t()

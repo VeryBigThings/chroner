@@ -3,6 +3,12 @@ defmodule Chroner.V4.Administrative.Doctor do
 
   use Chroner.Schema
 
+  @type filter_params :: %{
+          optional(:cursor) => String.t(),
+          optional(:doctor) => integer(),
+          optional(:page_size) => integer()
+        }
+
   @type specialty ::
           :""
           | :Acupuncture

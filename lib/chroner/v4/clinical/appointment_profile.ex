@@ -3,9 +3,10 @@ defmodule Chroner.V4.Clinical.AppointmentProfile do
 
   use Chroner.Schema
 
-  @type filter_params :: %{
+  @type list_params :: %{
+          optional(:cursor) => String.t(),
           optional(:doctor) => integer(),
-          optional(:show_archived) => boolean()
+          optional(:page_size) => integer()
         }
 
   @type upsert_params :: %{

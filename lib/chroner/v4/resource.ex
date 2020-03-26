@@ -38,9 +38,9 @@ defmodule Chroner.V4.Resource do
   end
 
   @spec list(client, module(), map()) :: {:ok, [struct()] | []} | error
-  def list(client, module, filters \\ %{}) do
+  def list(client, module, params \\ %{}) do
     with {:ok, %Response{body: %{"results" => data}}} <-
-           Client.get(client, "/#{module.plural()}", [], params: filters),
+           Client.get(client, "/#{module.plural()}", [], params: params),
          do: {:ok, cast_resource(module, data)}
   end
 
@@ -77,26 +77,22 @@ defmodule Chroner.V4.Resource do
          do: :ok
   end
 
-  # --------------------------------------------------------------------
-  # Private functions
-  # --------------------------------------------------------------------
-
-  defp upsert_headers do
+  def upsert_headers do
     [
       {"content-type", "application/x-www-form-urlencoded"},
       {"accept", "application/json"}
     ]
   end
 
-  defp cast_resource(type, %_{} = data),
+  def cast_resource(type, %_{} = data),
     do: struct(type, Map.from_struct(data))
 
-  defp cast_resource(type, data) when is_map(data) do
+  def cast_resource(type, data) when is_map(data) do
     data
     |> EctoMorph.cast_to_struct(type)
     |> elem(1)
   end
 
-  defp cast_resource(type, data) when is_list(data),
+  def cast_resource(type, data) when is_list(data),
     do: Enum.map(data, &cast_resource(type, &1))
 end

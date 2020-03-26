@@ -3,6 +3,11 @@ defmodule Chroner.V4.Clinical.Office.ExamRoom do
 
   use Chroner.Schema
 
+  @type upsert_params :: %{
+          required(:name) => String.t(),
+          optional(:online_scheduling) => boolean()
+        }
+
   @type t :: %__MODULE__{
           index: integer(),
           name: String.t(),
