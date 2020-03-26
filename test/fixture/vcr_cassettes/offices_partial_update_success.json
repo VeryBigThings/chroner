@@ -1,0 +1,121 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "accept": "application/json",
+        "authorization": "***"
+      },
+      "method": "get",
+      "options": {
+        "follow_redirect": "true",
+        "params": {}
+      },
+      "request_body": "",
+      "url": "https://app.drchrono.com/api/offices?"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"previous\":null,\"results\":[{\"id\":274103,\"name\":\"Primary Office\",\"exam_rooms\":[{\"index\":1,\"name\":\"Exam 1\",\"online_scheduling\":false},{\"index\":2,\"name\":\"Exam 2\",\"online_scheduling\":false},{\"index\":3,\"name\":\"Exam 3\",\"online_scheduling\":false},{\"index\":4,\"name\":\"Exam 4\",\"online_scheduling\":false}],\"start_time\":\"00:00:00\",\"end_time\":\"00:00:00\",\"address\":\"\",\"city\":null,\"state\":\"FL\",\"zip_code\":null,\"country\":\"US\",\"online_scheduling\":true,\"phone_number\":\"3054929687\",\"doctor\":257817,\"archived\":false,\"fax_number\":null,\"tax_id_number_professional\":\"\"}],\"next\":null}",
+      "headers": {
+        "Date": "Thu, 26 Mar 2020 16:51:25 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "561",
+        "Connection": "keep-alive",
+        "Set-Cookie": "__cfduid=d3bda2a5b9af8bab10d9414ce326b50ee1585241485; expires=Sat, 25-Apr-20 16:51:25 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
+        "x-xss-protection": "1; mode=block",
+        "x-content-type-options": "nosniff",
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "Vary": "User-Agent, Authorization, Cookie",
+        "Allow": "GET, HEAD, OPTIONS",
+        "Cache-Control": "no-cache",
+        "X-Frame-Options": "SAMEORIGIN",
+        "Accept-Ranges": "bytes",
+        "CF-Cache-Status": "DYNAMIC",
+        "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+        "Server": "cloudflare",
+        "CF-RAY": "57a260557989913f-ZAG"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "online_scheduling=false",
+      "headers": {
+        "authorization": "***",
+        "content-type": "application/x-www-form-urlencoded",
+        "accept": "application/json"
+      },
+      "method": "patch",
+      "options": {
+        "follow_redirect": "true"
+      },
+      "request_body": "",
+      "url": "https://app.drchrono.com/api/offices/274103"
+    },
+    "response": {
+      "binary": false,
+      "body": "",
+      "headers": {
+        "Date": "Thu, 26 Mar 2020 16:51:26 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Connection": "keep-alive",
+        "Set-Cookie": "__cfduid=d8234147b59dd45f9d4eebc81123f11081585241486; expires=Sat, 25-Apr-20 16:51:26 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
+        "x-xss-protection": "1; mode=block",
+        "x-content-type-options": "nosniff",
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "Vary": "User-Agent, Authorization, Cookie",
+        "Allow": "GET, PUT, PATCH, HEAD, OPTIONS",
+        "Cache-Control": "no-cache",
+        "X-Frame-Options": "SAMEORIGIN",
+        "CF-Cache-Status": "DYNAMIC",
+        "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+        "Server": "cloudflare",
+        "CF-RAY": "57a26057aaa2913f-ZAG"
+      },
+      "status_code": 204,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "accept": "application/json",
+        "authorization": "***"
+      },
+      "method": "get",
+      "options": {
+        "follow_redirect": "true"
+      },
+      "request_body": "",
+      "url": "https://app.drchrono.com/api/offices/274103"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"id\":274103,\"name\":\"Primary Office\",\"exam_rooms\":[{\"index\":1,\"name\":\"Exam 1\",\"online_scheduling\":false},{\"index\":2,\"name\":\"Exam 2\",\"online_scheduling\":false},{\"index\":3,\"name\":\"Exam 3\",\"online_scheduling\":false},{\"index\":4,\"name\":\"Exam 4\",\"online_scheduling\":false}],\"start_time\":\"00:00:00\",\"end_time\":\"00:00:00\",\"address\":\"\",\"city\":null,\"state\":\"FL\",\"zip_code\":null,\"country\":\"US\",\"online_scheduling\":false,\"phone_number\":\"3054929687\",\"doctor\":257817,\"archived\":false,\"fax_number\":null,\"tax_id_number_professional\":\"\"}",
+      "headers": {
+        "Date": "Thu, 26 Mar 2020 16:51:26 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "520",
+        "Connection": "keep-alive",
+        "Set-Cookie": "__cfduid=d8234147b59dd45f9d4eebc81123f11081585241486; expires=Sat, 25-Apr-20 16:51:26 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
+        "x-xss-protection": "1; mode=block",
+        "x-content-type-options": "nosniff",
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "Vary": "User-Agent, Authorization, Cookie",
+        "Allow": "GET, PUT, PATCH, HEAD, OPTIONS",
+        "Cache-Control": "no-cache",
+        "X-Frame-Options": "SAMEORIGIN",
+        "CF-Cache-Status": "DYNAMIC",
+        "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+        "Server": "cloudflare",
+        "CF-RAY": "57a2605a2ba4913f-ZAG"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

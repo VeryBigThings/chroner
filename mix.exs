@@ -1,20 +1,21 @@
-defmodule Chroner.MixProject do
+defmodule Chronex.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :chroner,
+      app: :chronex,
       version: "0.1.0",
       elixir: "~> 1.10",
+      elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       dialyzer: dialyzer(),
 
       # Docs
-      name: "Chroner",
-      source_url: "https://github.com/verybigthings/chroner",
+      name: "Chronex",
+      source_url: "https://github.com/verybigthings/chronex",
       docs: [
-        main: "Chroner",
+        main: "Chronex",
         extras: ["README.md"]
       ]
     ]
@@ -40,6 +41,9 @@ defmodule Chroner.MixProject do
       {:poison, "~> 3.1"}
     ]
   end
+
+  defp elixirc_paths(:test), do: ["lib", "test/support"]
+  defp elixirc_paths(_), do: ["lib"]
 
   defp dialyzer() do
     [

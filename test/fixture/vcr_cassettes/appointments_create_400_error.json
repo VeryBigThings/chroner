@@ -1,0 +1,42 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "authorization": "***",
+        "content-type": "application/x-www-form-urlencoded",
+        "accept": "application/json"
+      },
+      "method": "post",
+      "options": {
+        "follow_redirect": "true"
+      },
+      "request_body": "",
+      "url": "https://app.drchrono.com/api/appointments"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"exam_room\":[\"This field is required.\"],\"scheduled_time\":[\"This field is required.\"],\"patient\":[\"This field is required.\"],\"office\":[\"This field is required.\"],\"doctor\":[\"This field is required.\"]}",
+      "headers": {
+        "Date": "Thu, 26 Mar 2020 19:21:39 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "198",
+        "Connection": "keep-alive",
+        "Set-Cookie": "__cfduid=de1d7ffebebdb14dd448423a3194eb9c01585250499; expires=Sat, 25-Apr-20 19:21:39 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
+        "x-xss-protection": "1; mode=block",
+        "x-content-type-options": "nosniff",
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "Vary": "User-Agent, Authorization, Cookie",
+        "Allow": "GET, POST, HEAD, OPTIONS",
+        "Cache-Control": "no-cache",
+        "X-Frame-Options": "SAMEORIGIN",
+        "CF-Cache-Status": "DYNAMIC",
+        "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+        "Server": "cloudflare",
+        "CF-RAY": "57a33c63ef77fc75-ZAG"
+      },
+      "status_code": 400,
+      "type": "ok"
+    }
+  }
+]

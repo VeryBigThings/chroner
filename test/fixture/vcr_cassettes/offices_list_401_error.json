@@ -1,0 +1,41 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "accept": "application/json",
+        "authorization": "***"
+      },
+      "method": "get",
+      "options": {
+        "follow_redirect": "true",
+        "params": {}
+      },
+      "request_body": "",
+      "url": "https://app.drchrono.com/api/offices?"
+    },
+    "response": {
+      "binary": false,
+      "body": "Authorization failed.",
+      "headers": {
+        "Date": "Thu, 26 Mar 2020 16:51:16 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Set-Cookie": "__cfduid=df71d7280969b2a2845e71dfbad91ed9a1585241476; expires=Sat, 25-Apr-20 16:51:16 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
+        "x-xss-protection": "1; mode=block",
+        "x-content-type-options": "nosniff",
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "Vary": "User-Agent, Authorization, Cookie",
+        "X-Frame-Options": "SAMEORIGIN",
+        "WWW-Authenticate": "Bearer error=\"invalid_token\",error_description=\"The access token is invalid.\"",
+        "CF-Cache-Status": "DYNAMIC",
+        "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+        "Server": "cloudflare",
+        "CF-RAY": "57a2601bee1e913f-ZAG"
+      },
+      "status_code": 401,
+      "type": "ok"
+    }
+  }
+]

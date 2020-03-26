@@ -17,23 +17,23 @@
       "binary": false,
       "body": "{\"detail\":\"Not found.\"}",
       "headers": {
-        "Date": "Fri, 20 Mar 2020 19:57:01 GMT",
+        "Date": "Thu, 26 Mar 2020 17:10:34 GMT",
         "Content-Type": "application/json",
         "Content-Length": "23",
         "Connection": "keep-alive",
-        "Set-Cookie": "__cfduid=d05b3afc13d931f8c9df934bf4986f1871584734220; expires=Sun, 19-Apr-20 19:57:00 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
+        "Set-Cookie": "__cfduid=d0c584c9d1d11f66967ad8e74ae88bdc81585242633; expires=Sat, 25-Apr-20 17:10:33 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
         "x-xss-protection": "1; mode=block",
         "x-content-type-options": "nosniff",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "Vary": "User-Agent, Authorization, Cookie",
-        "X-Sentry-ID": "88dc1836c600402d9625a4cf680bdeda",
+        "X-Sentry-ID": "b021993a376d4efda3923d9eb148ae15",
         "Allow": "GET, HEAD, OPTIONS",
         "Cache-Control": "no-cache",
         "X-Frame-Options": "SAMEORIGIN",
         "CF-Cache-Status": "DYNAMIC",
         "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
         "Server": "cloudflare",
-        "CF-RAY": "5771ffefed06dfef-FRA"
+        "CF-RAY": "57a27c5cabd8fc69-ZAG"
       },
       "status_code": 404,
       "type": "ok"
