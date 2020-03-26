@@ -18,11 +18,11 @@
       "binary": false,
       "body": "Authorization failed.",
       "headers": {
-        "Date": "Tue, 24 Mar 2020 21:32:53 GMT",
+        "Date": "Thu, 26 Mar 2020 17:10:19 GMT",
         "Content-Type": "text/html; charset=utf-8",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
-        "Set-Cookie": "__cfduid=d384d570e41dbf6d215b3fcf852f1c7751585085573; expires=Thu, 23-Apr-20 21:32:53 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
+        "Set-Cookie": "__cfduid=d1def3e8e3f1941b2f71140c86bf7780e1585242619; expires=Sat, 25-Apr-20 17:10:19 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
         "x-xss-protection": "1; mode=block",
         "x-content-type-options": "nosniff",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
@@ -32,7 +32,7 @@
         "CF-Cache-Status": "DYNAMIC",
         "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
         "Server": "cloudflare",
-        "CF-RAY": "579381e1aa0bd6dd-FRA"
+        "CF-RAY": "57a27c0329abfc69-ZAG"
       },
       "status_code": 401,
       "type": "ok"

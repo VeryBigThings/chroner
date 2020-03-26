@@ -17,11 +17,11 @@
       "binary": false,
       "body": "{\"username\":\"rdecicca\",\"is_staff\":false,\"is_doctor\":true,\"doctor\":257817,\"id\":353230,\"practice_group\":279966,\"permissions\":{\"share_patients\":false,\"access_all_messages_for_practice_group\":false,\"show_patient_balance\":true,\"access_to_erx\":true,\"access_patient_payments\":false,\"emergency_access\":true,\"access_patient_analytics\":true,\"provider_dropdown\":false,\"create_and_update_patients\":true,\"appointment_provider_selection\":true,\"manage_templates\":true,\"access_to_message_center\":true,\"show_billing_summary\":true,\"access_patient_statements\":false,\"access_reports\":true,\"manage_accounts\":true,\"manage_permissions\":true,\"drug_interactions_check\":true,\"sign/lock_clinical_notes\":true,\"access_billing\":true,\"access_clinical_notes\":true,\"billing_administrator\":false,\"access_institutional_billing\":true,\"add_new_referring_sources\":false,\"export_patients\":true,\"use_ipad_ehr\":true,\"settings\":true,\"access_balance/ledger\":false,\"access_scheduling\":true,\"show_billing_tab\":true,\"create_and_update_contacts\":true,\"view_practice_group\":true}}",
       "headers": {
-        "Date": "Tue, 24 Mar 2020 21:33:00 GMT",
+        "Date": "Thu, 26 Mar 2020 17:10:08 GMT",
         "Content-Type": "application/json",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
-        "Set-Cookie": "__cfduid=d9b5345e118285ce69cb4aabb58b2dacd1585085580; expires=Thu, 23-Apr-20 21:33:00 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
+        "Set-Cookie": "__cfduid=dec034ebcec74fa7e1bfd8b65284f0f051585242607; expires=Sat, 25-Apr-20 17:10:07 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
         "x-xss-protection": "1; mode=block",
         "x-content-type-options": "nosniff",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
@@ -32,7 +32,7 @@
         "CF-Cache-Status": "DYNAMIC",
         "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
         "Server": "cloudflare",
-        "CF-RAY": "5793820cfd35d6dd-FRA"
+        "CF-RAY": "57a27bbaaa33fc69-ZAG"
       },
       "status_code": 200,
       "type": "ok"
@@ -56,11 +56,11 @@
       "binary": false,
       "body": "{\"username\":\"rdecicca\",\"is_staff\":false,\"is_doctor\":true,\"doctor\":257817,\"id\":353230,\"practice_group\":279966,\"permissions\":{\"share_patients\":false,\"access_all_messages_for_practice_group\":false,\"show_patient_balance\":true,\"access_to_erx\":true,\"access_patient_payments\":false,\"emergency_access\":true,\"access_patient_analytics\":true,\"provider_dropdown\":false,\"create_and_update_patients\":true,\"appointment_provider_selection\":true,\"manage_templates\":true,\"access_to_message_center\":true,\"show_billing_summary\":true,\"access_patient_statements\":false,\"access_reports\":true,\"manage_accounts\":true,\"manage_permissions\":true,\"drug_interactions_check\":true,\"sign/lock_clinical_notes\":true,\"access_billing\":true,\"access_clinical_notes\":true,\"billing_administrator\":false,\"access_institutional_billing\":true,\"add_new_referring_sources\":false,\"export_patients\":true,\"use_ipad_ehr\":true,\"settings\":true,\"access_balance/ledger\":false,\"access_scheduling\":true,\"show_billing_tab\":true,\"create_and_update_contacts\":true,\"view_practice_group\":true}}",
       "headers": {
-        "Date": "Tue, 24 Mar 2020 21:33:00 GMT",
+        "Date": "Thu, 26 Mar 2020 17:10:08 GMT",
         "Content-Type": "application/json",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
-        "Set-Cookie": "__cfduid=d9b5345e118285ce69cb4aabb58b2dacd1585085580; expires=Thu, 23-Apr-20 21:33:00 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
+        "Set-Cookie": "__cfduid=dcb0d0236c81bae3ca34e09e97a9e94d91585242608; expires=Sat, 25-Apr-20 17:10:08 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
         "x-xss-protection": "1; mode=block",
         "x-content-type-options": "nosniff",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
@@ -71,7 +71,7 @@
         "CF-Cache-Status": "DYNAMIC",
         "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
         "Server": "cloudflare",
-        "CF-RAY": "5793820ed9eed6dd-FRA"
+        "CF-RAY": "57a27bbe8fe6fc69-ZAG"
       },
       "status_code": 200,
       "type": "ok"

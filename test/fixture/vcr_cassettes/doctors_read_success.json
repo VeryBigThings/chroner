@@ -18,11 +18,11 @@
       "binary": false,
       "body": "{\"previous\":null,\"results\":[{\"id\":257817,\"first_name\":\"Rich\",\"last_name\":\"DeCicca\",\"email\":\"rich.decicca@verybigthings.com\",\"specialty\":\"Acupuncture\",\"job_title\":\"API/Developer\",\"suffix\":null,\"website\":null,\"home_phone\":\"\",\"office_phone\":\"3054929687\",\"cell_phone\":\"3054929687\",\"country\":\"US\",\"timezone\":\"US/Eastern\",\"npi_number\":\"\",\"group_npi_number\":null,\"practice_group\":279966,\"practice_group_name\":\"\",\"profile_picture\":\"\",\"is_account_suspended\":false}],\"next\":null}",
       "headers": {
-        "Date": "Tue, 24 Mar 2020 21:33:02 GMT",
+        "Date": "Thu, 26 Mar 2020 17:10:16 GMT",
         "Content-Type": "application/json",
         "Content-Length": "469",
         "Connection": "keep-alive",
-        "Set-Cookie": "__cfduid=d2b7dcb58f3f8c7e15fa69295651241bf1585085581; expires=Thu, 23-Apr-20 21:33:01 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
+        "Set-Cookie": "__cfduid=d2ed33bc0b9bfcebad78176622daee3b61585242616; expires=Sat, 25-Apr-20 17:10:16 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
         "x-xss-protection": "1; mode=block",
         "x-content-type-options": "nosniff",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
@@ -34,7 +34,7 @@
         "CF-Cache-Status": "DYNAMIC",
         "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
         "Server": "cloudflare",
-        "CF-RAY": "57938214b8b2d6dd-FRA"
+        "CF-RAY": "57a27bef0fe1fc69-ZAG"
       },
       "status_code": 200,
       "type": "ok"
@@ -58,11 +58,11 @@
       "binary": false,
       "body": "{\"id\":257817,\"first_name\":\"Rich\",\"last_name\":\"DeCicca\",\"email\":\"rich.decicca@verybigthings.com\",\"specialty\":\"Acupuncture\",\"job_title\":\"API/Developer\",\"suffix\":null,\"website\":null,\"home_phone\":\"\",\"office_phone\":\"3054929687\",\"cell_phone\":\"3054929687\",\"country\":\"US\",\"timezone\":\"US/Eastern\",\"npi_number\":\"\",\"group_npi_number\":null,\"practice_group\":279966,\"practice_group_name\":\"\",\"profile_picture\":\"\",\"is_account_suspended\":false}",
       "headers": {
-        "Date": "Tue, 24 Mar 2020 21:33:02 GMT",
+        "Date": "Thu, 26 Mar 2020 17:10:16 GMT",
         "Content-Type": "application/json",
         "Content-Length": "427",
         "Connection": "keep-alive",
-        "Set-Cookie": "__cfduid=d3006235cce32a2b9f811b36da439a31d1585085582; expires=Thu, 23-Apr-20 21:33:02 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
+        "Set-Cookie": "__cfduid=d2ed33bc0b9bfcebad78176622daee3b61585242616; expires=Sat, 25-Apr-20 17:10:16 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
         "x-xss-protection": "1; mode=block",
         "x-content-type-options": "nosniff",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
@@ -74,7 +74,7 @@
         "CF-Cache-Status": "DYNAMIC",
         "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
         "Server": "cloudflare",
-        "CF-RAY": "579382187b2bd6dd-FRA"
+        "CF-RAY": "57a27bf1abf9fc69-ZAG"
       },
       "status_code": 200,
       "type": "ok"

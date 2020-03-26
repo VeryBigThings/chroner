@@ -8,20 +8,21 @@
       },
       "method": "get",
       "options": {
-        "follow_redirect": "true"
+        "follow_redirect": "true",
+        "params": {}
       },
       "request_body": "",
-      "url": "https://app.drchrono.com/api/users/current"
+      "url": "https://app.drchrono.com/api/offices?"
     },
     "response": {
       "binary": false,
-      "body": "{\"username\":\"rdecicca\",\"is_staff\":false,\"is_doctor\":true,\"doctor\":257817,\"id\":353230,\"practice_group\":279966,\"permissions\":{\"share_patients\":false,\"access_all_messages_for_practice_group\":false,\"show_patient_balance\":true,\"access_to_erx\":true,\"access_patient_payments\":false,\"emergency_access\":true,\"access_patient_analytics\":true,\"provider_dropdown\":false,\"create_and_update_patients\":true,\"appointment_provider_selection\":true,\"manage_templates\":true,\"access_to_message_center\":true,\"show_billing_summary\":true,\"access_patient_statements\":false,\"access_reports\":true,\"manage_accounts\":true,\"manage_permissions\":true,\"drug_interactions_check\":true,\"sign/lock_clinical_notes\":true,\"access_billing\":true,\"access_clinical_notes\":true,\"billing_administrator\":false,\"access_institutional_billing\":true,\"add_new_referring_sources\":false,\"export_patients\":true,\"use_ipad_ehr\":true,\"settings\":true,\"access_balance/ledger\":false,\"access_scheduling\":true,\"show_billing_tab\":true,\"create_and_update_contacts\":true,\"view_practice_group\":true}}",
+      "body": "{\"previous\":null,\"results\":[{\"id\":274103,\"name\":\"Primary Office\",\"exam_rooms\":[{\"index\":1,\"name\":\"Exam 1\",\"online_scheduling\":false},{\"index\":2,\"name\":\"Exam 2\",\"online_scheduling\":false},{\"index\":3,\"name\":\"Exam 3\",\"online_scheduling\":false},{\"index\":4,\"name\":\"Exam 4\",\"online_scheduling\":false}],\"start_time\":\"00:00:00\",\"end_time\":\"00:00:00\",\"address\":\"\",\"city\":null,\"state\":\"FL\",\"zip_code\":null,\"country\":\"US\",\"online_scheduling\":true,\"phone_number\":\"3054929687\",\"doctor\":257817,\"archived\":false,\"fax_number\":null,\"tax_id_number_professional\":\"\"}],\"next\":null}",
       "headers": {
-        "Date": "Thu, 26 Mar 2020 17:10:06 GMT",
+        "Date": "Thu, 26 Mar 2020 16:51:15 GMT",
         "Content-Type": "application/json",
-        "Transfer-Encoding": "chunked",
+        "Content-Length": "561",
         "Connection": "keep-alive",
-        "Set-Cookie": "__cfduid=d0fac07b657a263b57c9d79187337b05c1585242606; expires=Sat, 25-Apr-20 17:10:06 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
+        "Set-Cookie": "__cfduid=dd1d32054850ded004342c6c31dfbefdb1585241474; expires=Sat, 25-Apr-20 16:51:14 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
         "x-xss-protection": "1; mode=block",
         "x-content-type-options": "nosniff",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
@@ -29,10 +30,11 @@
         "Allow": "GET, HEAD, OPTIONS",
         "Cache-Control": "no-cache",
         "X-Frame-Options": "SAMEORIGIN",
+        "Accept-Ranges": "bytes",
         "CF-Cache-Status": "DYNAMIC",
         "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
         "Server": "cloudflare",
-        "CF-RAY": "57a27bafcf36fc69-ZAG"
+        "CF-RAY": "57a2601128f4913f-ZAG"
       },
       "status_code": 200,
       "type": "ok"
@@ -50,17 +52,17 @@
         "follow_redirect": "true"
       },
       "request_body": "",
-      "url": "https://app.drchrono.com/api/users/353230"
+      "url": "https://app.drchrono.com/api/offices/274103"
     },
     "response": {
       "binary": false,
       "body": "Authorization failed.",
       "headers": {
-        "Date": "Thu, 26 Mar 2020 17:10:06 GMT",
+        "Date": "Thu, 26 Mar 2020 16:51:15 GMT",
         "Content-Type": "text/html; charset=utf-8",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
-        "Set-Cookie": "__cfduid=d0fac07b657a263b57c9d79187337b05c1585242606; expires=Sat, 25-Apr-20 17:10:06 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
+        "Set-Cookie": "__cfduid=d4476a5cd4bec89a30c8bb7731a00f83b1585241475; expires=Sat, 25-Apr-20 16:51:15 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
         "x-xss-protection": "1; mode=block",
         "x-content-type-options": "nosniff",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
@@ -70,7 +72,7 @@
         "CF-Cache-Status": "DYNAMIC",
         "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
         "Server": "cloudflare",
-        "CF-RAY": "57a27bb1cb01fc69-ZAG"
+        "CF-RAY": "57a260146a9f913f-ZAG"
       },
       "status_code": 401,
       "type": "ok"

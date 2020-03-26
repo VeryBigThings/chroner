@@ -17,11 +17,11 @@
       "binary": false,
       "body": "{\"detail\":\"Not found.\"}",
       "headers": {
-        "Date": "Tue, 24 Mar 2020 21:32:34 GMT",
+        "Date": "Thu, 26 Mar 2020 17:10:22 GMT",
         "Content-Type": "application/json",
         "Content-Length": "23",
         "Connection": "keep-alive",
-        "Set-Cookie": "__cfduid=d8d4c67c96e060c8f60c8df6b93090b7f1585085554; expires=Thu, 23-Apr-20 21:32:34 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
+        "Set-Cookie": "__cfduid=dd460c4f47fe19039e3164d10ad4add861585242621; expires=Sat, 25-Apr-20 17:10:21 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
         "x-xss-protection": "1; mode=block",
         "x-content-type-options": "nosniff",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
@@ -32,7 +32,7 @@
         "CF-Cache-Status": "DYNAMIC",
         "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
         "Server": "cloudflare",
-        "CF-RAY": "5793816d5cafd6dd-FRA"
+        "CF-RAY": "57a27c12bb1bfc69-ZAG"
       },
       "status_code": 404,
       "type": "ok"

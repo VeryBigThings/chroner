@@ -18,11 +18,11 @@
       "binary": false,
       "body": "{\"gender\":[\"This field is required.\"],\"doctor\":[\"This field is required.\"]}",
       "headers": {
-        "Date": "Tue, 24 Mar 2020 21:32:33 GMT",
+        "Date": "Thu, 26 Mar 2020 17:10:23 GMT",
         "Content-Type": "application/json",
         "Content-Length": "75",
         "Connection": "keep-alive",
-        "Set-Cookie": "__cfduid=dc66094c497bc670c6fd86ed724245d7e1585085553; expires=Thu, 23-Apr-20 21:32:33 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
+        "Set-Cookie": "__cfduid=d0a97de63b44d010a7cfcb64aedf319561585242623; expires=Sat, 25-Apr-20 17:10:23 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
         "x-xss-protection": "1; mode=block",
         "x-content-type-options": "nosniff",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
@@ -33,7 +33,7 @@
         "CF-Cache-Status": "DYNAMIC",
         "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
         "Server": "cloudflare",
-        "CF-RAY": "5793816388f7d6dd-FRA"
+        "CF-RAY": "57a27c19ce86fc69-ZAG"
       },
       "status_code": 400,
       "type": "ok"

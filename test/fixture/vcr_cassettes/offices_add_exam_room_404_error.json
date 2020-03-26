@@ -3,37 +3,39 @@
     "request": {
       "body": "",
       "headers": {
-        "accept": "application/json",
-        "authorization": "***"
+        "authorization": "***",
+        "content-type": "application/x-www-form-urlencoded",
+        "accept": "application/json"
       },
-      "method": "get",
+      "method": "post",
       "options": {
         "follow_redirect": "true"
       },
       "request_body": "",
-      "url": "https://app.drchrono.com/api/user_groups/0"
+      "url": "https://app.drchrono.com/api/offices/0/add_exam_room"
     },
     "response": {
       "binary": false,
-      "body": "Authorization failed.",
+      "body": "{\"detail\":\"Not found.\"}",
       "headers": {
-        "Date": "Thu, 26 Mar 2020 17:10:35 GMT",
-        "Content-Type": "text/html; charset=utf-8",
-        "Transfer-Encoding": "chunked",
+        "Date": "Thu, 26 Mar 2020 17:09:05 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "23",
         "Connection": "keep-alive",
-        "Set-Cookie": "__cfduid=d359f90d58fd7af0fa4f94679b79734731585242634; expires=Sat, 25-Apr-20 17:10:34 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
+        "Set-Cookie": "__cfduid=dc4d6e3ce2f62b2283637b342d6e5883a1585242545; expires=Sat, 25-Apr-20 17:09:05 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
         "x-xss-protection": "1; mode=block",
         "x-content-type-options": "nosniff",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "Vary": "User-Agent, Authorization, Cookie",
+        "Allow": "POST, OPTIONS",
+        "Cache-Control": "no-cache",
         "X-Frame-Options": "SAMEORIGIN",
-        "WWW-Authenticate": "Bearer error=\"invalid_token\",error_description=\"The access token is invalid.\"",
         "CF-Cache-Status": "DYNAMIC",
         "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
         "Server": "cloudflare",
-        "CF-RAY": "57a27c646809fc69-ZAG"
+        "CF-RAY": "57a27a357b069103-ZAG"
       },
-      "status_code": 401,
+      "status_code": 404,
       "type": "ok"
     }
   }

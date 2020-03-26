@@ -12,17 +12,17 @@
         "params": {}
       },
       "request_body": "",
-      "url": "https://app.drchrono.com/api/doctors?"
+      "url": "https://app.drchrono.com/api/offices?"
     },
     "response": {
       "binary": false,
-      "body": "{\"previous\":null,\"results\":[{\"id\":257817,\"first_name\":\"Rich\",\"last_name\":\"DeCicca\",\"email\":\"rich.decicca@verybigthings.com\",\"specialty\":\"Acupuncture\",\"job_title\":\"API/Developer\",\"suffix\":null,\"website\":null,\"home_phone\":\"\",\"office_phone\":\"3054929687\",\"cell_phone\":\"3054929687\",\"country\":\"US\",\"timezone\":\"US/Eastern\",\"npi_number\":\"\",\"group_npi_number\":null,\"practice_group\":279966,\"practice_group_name\":\"\",\"profile_picture\":\"\",\"is_account_suspended\":false}],\"next\":null}",
+      "body": "{\"previous\":null,\"results\":[{\"id\":274103,\"name\":\"Primary Office\",\"exam_rooms\":[{\"index\":1,\"name\":\"Exam 1\",\"online_scheduling\":false},{\"index\":2,\"name\":\"Exam 2\",\"online_scheduling\":false},{\"index\":3,\"name\":\"Exam 3\",\"online_scheduling\":false},{\"index\":4,\"name\":\"Exam 4\",\"online_scheduling\":false}],\"start_time\":\"00:00:00\",\"end_time\":\"00:00:00\",\"address\":\"\",\"city\":null,\"state\":\"FL\",\"zip_code\":null,\"country\":\"US\",\"online_scheduling\":false,\"phone_number\":\"3054929687\",\"doctor\":257817,\"archived\":false,\"fax_number\":null,\"tax_id_number_professional\":\"\"}],\"next\":null}",
       "headers": {
-        "Date": "Thu, 26 Mar 2020 17:09:35 GMT",
+        "Date": "Thu, 26 Mar 2020 17:08:58 GMT",
         "Content-Type": "application/json",
-        "Content-Length": "469",
+        "Content-Length": "562",
         "Connection": "keep-alive",
-        "Set-Cookie": "__cfduid=d841669d345e7c36fead8a679152f10e01585242575; expires=Sat, 25-Apr-20 17:09:35 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
+        "Set-Cookie": "__cfduid=d71739c8a967dc76052abf03da9253f331585242538; expires=Sat, 25-Apr-20 17:08:58 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
         "x-xss-protection": "1; mode=block",
         "x-content-type-options": "nosniff",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
@@ -34,7 +34,7 @@
         "CF-Cache-Status": "DYNAMIC",
         "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
         "Server": "cloudflare",
-        "CF-RAY": "57a27aeedbe5fc69-ZAG"
+        "CF-RAY": "57a27a0b0caa9103-ZAG"
       },
       "status_code": 200,
       "type": "ok"
@@ -42,7 +42,7 @@
   },
   {
     "request": {
-      "body": "color=%237B7B7B&doctor=257817&duration=123&name=Test+name&online_scheduling=true&reason=Reason",
+      "body": "name=New+exam+room&online_scheduling=true",
       "headers": {
         "authorization": "***",
         "content-type": "application/x-www-form-urlencoded",
@@ -53,30 +53,30 @@
         "follow_redirect": "true"
       },
       "request_body": "",
-      "url": "https://app.drchrono.com/api/appointment_profiles"
+      "url": "https://app.drchrono.com/api/offices/274103/add_exam_room"
     },
     "response": {
       "binary": false,
-      "body": "{\"id\":284052,\"name\":\"Test name\",\"sort_order\":999,\"color\":\"#7B7B7B\",\"doctor\":257817,\"reason\":\"Reason\",\"duration\":123,\"online_scheduling\":true,\"archived\":false}",
+      "body": "[\"Office already has the maximum number of exam rooms\"]",
       "headers": {
-        "Date": "Thu, 26 Mar 2020 17:09:35 GMT",
+        "Date": "Thu, 26 Mar 2020 17:09:00 GMT",
         "Content-Type": "application/json",
-        "Content-Length": "158",
+        "Content-Length": "55",
         "Connection": "keep-alive",
-        "Set-Cookie": "__cfduid=d841669d345e7c36fead8a679152f10e01585242575; expires=Sat, 25-Apr-20 17:09:35 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
+        "Set-Cookie": "__cfduid=de1950ba605c57fade3f1247351b4d18a1585242539; expires=Sat, 25-Apr-20 17:08:59 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
         "x-xss-protection": "1; mode=block",
         "x-content-type-options": "nosniff",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "Vary": "User-Agent, Authorization, Cookie",
-        "Allow": "GET, POST, HEAD, OPTIONS",
+        "Allow": "POST, OPTIONS",
         "Cache-Control": "no-cache",
         "X-Frame-Options": "SAMEORIGIN",
         "CF-Cache-Status": "DYNAMIC",
         "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
         "Server": "cloudflare",
-        "CF-RAY": "57a27af29b1ffc69-ZAG"
+        "CF-RAY": "57a27a12c8039103-ZAG"
       },
-      "status_code": 201,
+      "status_code": 400,
       "type": "ok"
     }
   }

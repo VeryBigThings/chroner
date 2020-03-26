@@ -1,0 +1,82 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "accept": "application/json",
+        "authorization": "***"
+      },
+      "method": "get",
+      "options": {
+        "follow_redirect": "true",
+        "params": {}
+      },
+      "request_body": "",
+      "url": "https://app.drchrono.com/api/offices?"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"previous\":null,\"results\":[{\"id\":274103,\"name\":\"Primary Office\",\"exam_rooms\":[{\"index\":1,\"name\":\"Exam 1\",\"online_scheduling\":false},{\"index\":2,\"name\":\"Exam 2\",\"online_scheduling\":false},{\"index\":3,\"name\":\"Exam 3\",\"online_scheduling\":false},{\"index\":4,\"name\":\"Exam 4\",\"online_scheduling\":false}],\"start_time\":\"00:00:00\",\"end_time\":\"00:00:00\",\"address\":\"\",\"city\":null,\"state\":\"FL\",\"zip_code\":null,\"country\":\"US\",\"online_scheduling\":true,\"phone_number\":\"3054929687\",\"doctor\":257817,\"archived\":false,\"fax_number\":null,\"tax_id_number_professional\":\"\"}],\"next\":null}",
+      "headers": {
+        "Date": "Thu, 26 Mar 2020 16:51:19 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "561",
+        "Connection": "keep-alive",
+        "Set-Cookie": "__cfduid=db15081fffde8f571d290f1066e575ca91585241478; expires=Sat, 25-Apr-20 16:51:18 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
+        "x-xss-protection": "1; mode=block",
+        "x-content-type-options": "nosniff",
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "Vary": "User-Agent, Authorization, Cookie",
+        "Allow": "GET, HEAD, OPTIONS",
+        "Cache-Control": "no-cache",
+        "X-Frame-Options": "SAMEORIGIN",
+        "Accept-Ranges": "bytes",
+        "CF-Cache-Status": "DYNAMIC",
+        "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+        "Server": "cloudflare",
+        "CF-RAY": "57a2602aaccf913f-ZAG"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "accept": "application/json",
+        "authorization": "***"
+      },
+      "method": "get",
+      "options": {
+        "follow_redirect": "true"
+      },
+      "request_body": "",
+      "url": "https://app.drchrono.com/api/offices/274103"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"id\":274103,\"name\":\"Primary Office\",\"exam_rooms\":[{\"index\":1,\"name\":\"Exam 1\",\"online_scheduling\":false},{\"index\":2,\"name\":\"Exam 2\",\"online_scheduling\":false},{\"index\":3,\"name\":\"Exam 3\",\"online_scheduling\":false},{\"index\":4,\"name\":\"Exam 4\",\"online_scheduling\":false}],\"start_time\":\"00:00:00\",\"end_time\":\"00:00:00\",\"address\":\"\",\"city\":null,\"state\":\"FL\",\"zip_code\":null,\"country\":\"US\",\"online_scheduling\":true,\"phone_number\":\"3054929687\",\"doctor\":257817,\"archived\":false,\"fax_number\":null,\"tax_id_number_professional\":\"\"}",
+      "headers": {
+        "Date": "Thu, 26 Mar 2020 16:51:19 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "519",
+        "Connection": "keep-alive",
+        "Set-Cookie": "__cfduid=d01eea87a17e9117d53d9dd979f233da41585241479; expires=Sat, 25-Apr-20 16:51:19 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
+        "x-xss-protection": "1; mode=block",
+        "x-content-type-options": "nosniff",
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "Vary": "User-Agent, Authorization, Cookie",
+        "Allow": "GET, PUT, PATCH, HEAD, OPTIONS",
+        "Cache-Control": "no-cache",
+        "X-Frame-Options": "SAMEORIGIN",
+        "CF-Cache-Status": "DYNAMIC",
+        "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+        "Server": "cloudflare",
+        "CF-RAY": "57a2602c9e14913f-ZAG"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

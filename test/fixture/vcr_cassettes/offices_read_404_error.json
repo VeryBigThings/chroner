@@ -11,29 +11,31 @@
         "follow_redirect": "true"
       },
       "request_body": "",
-      "url": "https://app.drchrono.com/api/user_groups/0"
+      "url": "https://app.drchrono.com/api/offices/0"
     },
     "response": {
       "binary": false,
-      "body": "Authorization failed.",
+      "body": "{\"detail\":\"Not found.\"}",
       "headers": {
-        "Date": "Thu, 26 Mar 2020 17:10:35 GMT",
-        "Content-Type": "text/html; charset=utf-8",
-        "Transfer-Encoding": "chunked",
+        "Date": "Thu, 26 Mar 2020 16:51:23 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "23",
         "Connection": "keep-alive",
-        "Set-Cookie": "__cfduid=d359f90d58fd7af0fa4f94679b79734731585242634; expires=Sat, 25-Apr-20 17:10:34 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
+        "Set-Cookie": "__cfduid=d96bb91bdfa2db282661bf1c74910e1e11585241482; expires=Sat, 25-Apr-20 16:51:22 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
         "x-xss-protection": "1; mode=block",
         "x-content-type-options": "nosniff",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "Vary": "User-Agent, Authorization, Cookie",
+        "X-Sentry-ID": "db611181306c47a197505ed41a91e699",
+        "Allow": "GET, PUT, PATCH, HEAD, OPTIONS",
+        "Cache-Control": "no-cache",
         "X-Frame-Options": "SAMEORIGIN",
-        "WWW-Authenticate": "Bearer error=\"invalid_token\",error_description=\"The access token is invalid.\"",
         "CF-Cache-Status": "DYNAMIC",
         "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
         "Server": "cloudflare",
-        "CF-RAY": "57a27c646809fc69-ZAG"
+        "CF-RAY": "57a260447984913f-ZAG"
       },
-      "status_code": 401,
+      "status_code": 404,
       "type": "ok"
     }
   }

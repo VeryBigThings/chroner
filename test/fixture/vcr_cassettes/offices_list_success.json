@@ -12,17 +12,17 @@
         "params": {}
       },
       "request_body": "",
-      "url": "https://app.drchrono.com/api/doctors?"
+      "url": "https://app.drchrono.com/api/offices?"
     },
     "response": {
       "binary": false,
-      "body": "{\"previous\":null,\"results\":[{\"id\":257817,\"first_name\":\"Rich\",\"last_name\":\"DeCicca\",\"email\":\"rich.decicca@verybigthings.com\",\"specialty\":\"Acupuncture\",\"job_title\":\"API/Developer\",\"suffix\":null,\"website\":null,\"home_phone\":\"\",\"office_phone\":\"3054929687\",\"cell_phone\":\"3054929687\",\"country\":\"US\",\"timezone\":\"US/Eastern\",\"npi_number\":\"\",\"group_npi_number\":null,\"practice_group\":279966,\"practice_group_name\":\"\",\"profile_picture\":\"\",\"is_account_suspended\":false}],\"next\":null}",
+      "body": "{\"previous\":null,\"results\":[{\"id\":274103,\"name\":\"Primary Office\",\"exam_rooms\":[{\"index\":1,\"name\":\"Exam 1\",\"online_scheduling\":false},{\"index\":2,\"name\":\"Exam 2\",\"online_scheduling\":false},{\"index\":3,\"name\":\"Exam 3\",\"online_scheduling\":false},{\"index\":4,\"name\":\"Exam 4\",\"online_scheduling\":false}],\"start_time\":\"00:00:00\",\"end_time\":\"00:00:00\",\"address\":\"\",\"city\":null,\"state\":\"FL\",\"zip_code\":null,\"country\":\"US\",\"online_scheduling\":true,\"phone_number\":\"3054929687\",\"doctor\":257817,\"archived\":false,\"fax_number\":null,\"tax_id_number_professional\":\"\"}],\"next\":null}",
       "headers": {
-        "Date": "Thu, 26 Mar 2020 17:10:13 GMT",
+        "Date": "Thu, 26 Mar 2020 16:51:20 GMT",
         "Content-Type": "application/json",
-        "Content-Length": "469",
+        "Content-Length": "561",
         "Connection": "keep-alive",
-        "Set-Cookie": "__cfduid=de0f0f284d6826b050720c82b278a9d9c1585242613; expires=Sat, 25-Apr-20 17:10:13 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
+        "Set-Cookie": "__cfduid=d40398b1143c8d52653bc6dab8ce0884b1585241480; expires=Sat, 25-Apr-20 16:51:20 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
         "x-xss-protection": "1; mode=block",
         "x-content-type-options": "nosniff",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
@@ -34,7 +34,7 @@
         "CF-Cache-Status": "DYNAMIC",
         "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
         "Server": "cloudflare",
-        "CF-RAY": "57a27bdd6a49fc69-ZAG"
+        "CF-RAY": "57a26034c9f5913f-ZAG"
       },
       "status_code": 200,
       "type": "ok"
