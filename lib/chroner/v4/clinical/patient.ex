@@ -19,6 +19,7 @@ defmodule Chroner.V4.Clinical.Patient do
   @type gender :: :"" | :Male | :Female | :Other | :UNK | :ASKU
 
   @type list_params :: %{
+          optional(:chart_id) => String.t(),
           optional(:cursor) => String.t(),
           optional(:date_of_birth) => String.t(),
           optional(:doctor) => integer(),
@@ -30,9 +31,7 @@ defmodule Chroner.V4.Clinical.Patient do
           optional(:page_size) => integer(),
           optional(:preferred_language) => String.t(),
           optional(:race) => race(),
-          optional(:offices) => String.t(),
-          optional(:since) => String.t(),
-          optional(:show_inactive) => boolean()
+          optional(:since) => String.t()
         }
 
   @type patient_payment_profile ::

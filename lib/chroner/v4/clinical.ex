@@ -90,6 +90,19 @@ defmodule Chroner.V4.Clinical do
   # Patients
   # --------------------------------------------------------------------
 
+  @doc "Retrieve patient CCDA."
+  @spec patients_ccda(client, integer(), Patient.list_params()) :: {:ok, String.t()} | error
+  def patients_ccda(client, id, params) do
+    with {:ok, %Response{body: data}} <-
+           Client.get(
+             client,
+             "/patients/#{id}/ccda",
+             [{"accept", "application/xml"}],
+             params: params
+           ),
+         do: {:ok, data}
+  end
+
   @doc "Creates new patient resource."
   @spec patients_create(client, Patient.upsert_params()) ::
           {:ok, Patient.t()} | error
@@ -112,6 +125,19 @@ defmodule Chroner.V4.Clinical do
   @spec patients_update(client, id, Patient.upsert_params()) :: :ok | error
   def patients_update(client, id, params), do: update(client, id, params, Patient)
 
+  @doc "Retrieve patient QRDA1."
+  @spec patients_qrda1(client, integer(), Patient.list_params()) :: {:ok, String.t()} | error
+  def patients_qrda1(client, id, params) do
+    with {:ok, %Response{body: data}} <-
+           Client.get(
+             client,
+             "/patients/#{id}/qrda1",
+             [{"accept", "application/xml"}],
+             params: params
+           ),
+         do: {:ok, data}
+  end
+
   # --------------------------------------------------------------------
   # Offices
   # --------------------------------------------------------------------
@@ -122,7 +148,7 @@ defmodule Chroner.V4.Clinical do
     with {:ok, %Response{body: data}} <-
            Client.post(
              client,
-             "/#{id}/add_exam_room",
+             "/offices/#{id}/add_exam_room",
              params,
              upsert_headers()
            ),
