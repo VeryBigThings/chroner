@@ -12,6 +12,8 @@ defmodule Chroner.V4.Clinical do
   @type id :: integer()
   @type client :: OAuth2.Client.t()
   @type error :: {:error, OAuth2.Response.t()}
+  @type next :: String.t()
+  @type previous :: String.t()
 
   # --------------------------------------------------------------------
   # Appointments
@@ -29,7 +31,7 @@ defmodule Chroner.V4.Clinical do
 
   @doc "Fetches all appointment resources."
   @spec appointments_list(client, Appointment.list_params() | %{}) ::
-          {:ok, [Appointment.t()] | []} | error
+          {:ok, %{data: [Appointment.t()] | [], next: next, previous: previous}} | error
   def appointments_list(client, params), do: list(client, Appointment, params)
 
   @doc "Partialky updates existing appointment resource by ID and params."
@@ -62,7 +64,7 @@ defmodule Chroner.V4.Clinical do
 
   @doc "Fetches all appointment_profile resources."
   @spec appointment_profiles_list(client, AppointmentProfile.list_params() | %{}) ::
-          {:ok, [AppointmentProfile.t()] | []} | error
+          {:ok, %{data: [AppointmentProfile.t()] | [], next: next, previous: previous}} | error
   def appointment_profiles_list(client, params \\ %{}),
     do: list(client, AppointmentProfile, params)
 
@@ -115,7 +117,8 @@ defmodule Chroner.V4.Clinical do
   def patients_delete(client, id), do: delete(client, id, Patient)
 
   @doc "Fetches all patient resources."
-  @spec patients_list(client, Patient.list_params() | %{}) :: {:ok, [Patient.t()] | []} | error
+  @spec patients_list(client, Patient.list_params() | %{}) ::
+          {:ok, %{data: [Patient.t()] | [], next: next, previous: previous}} | error
   def patients_list(client, params \\ %{}), do: list(client, Patient, params)
 
   @doc "Fetches patient resource by ID."
@@ -158,7 +161,8 @@ defmodule Chroner.V4.Clinical do
   end
 
   @doc "Fetches all office resources."
-  @spec offices_list(client, Office.list_params() | %{}) :: {:ok, [Office.t()] | []} | error
+  @spec offices_list(client, Office.list_params() | %{}) ::
+          {:ok, %{data: [Office.t()] | [], next: next, previous: previous}} | error
   def offices_list(client, params \\ %{}), do: list(client, Office, params)
 
   @doc "Partially updates existing office resource by ID and params."

@@ -10,13 +10,16 @@ defmodule Chroner.V4.Administrative do
   @type id :: id
   @type client :: OAuth2.Client.t()
   @type error :: {:error, OAuth2.Response.t()}
+  @type next :: String.t()
+  @type previous :: String.t()
 
   # --------------------------------------------------------------------
   # Doctors
   # --------------------------------------------------------------------
 
   @doc "Fetches all doctors resources."
-  @spec doctors_list(client) :: {:ok, [Doctor.t()] | []} | error
+  @spec doctors_list(client) ::
+          {:ok, %{data: [Doctor.t()] | [], next: next, previous: previous}} | error
   def doctors_list(client), do: list(client, Doctor)
 
   @doc "Fetches doctors resource by ID."
@@ -32,7 +35,8 @@ defmodule Chroner.V4.Administrative do
   def users_current(client), do: current(client, User)
 
   @doc "Fetches all users resources."
-  @spec users_list(client) :: {:ok, [User.t()] | []} | error
+  @spec users_list(client) ::
+          {:ok, %{data: [User.t()] | [], next: next, previous: previous}} | error
   def users_list(client), do: list(client, User)
 
   @doc "Fetches users resource by ID."
@@ -44,7 +48,8 @@ defmodule Chroner.V4.Administrative do
   # --------------------------------------------------------------------
 
   @doc "Fetches all user groups resources."
-  @spec user_groups_list(client) :: {:ok, [UserGroup.t()] | []} | error
+  @spec user_groups_list(client) ::
+          {:ok, %{data: [UserGroup.t()] | [], next: next, previous: previous}} | error
   def user_groups_list(client), do: list(client, UserGroup)
 
   @doc "Fetches user groups resource by ID."

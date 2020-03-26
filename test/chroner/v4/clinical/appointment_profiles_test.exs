@@ -4,7 +4,7 @@ defmodule Chroner.V4.Clinical.AppointmentProfilesTest do
   describe "appointment_profiles_create/2" do
     test "creates new appointment profile", %{valid_client: client} do
       use_cassette "appointment_profiles_create_success" do
-        {:ok, [%Doctor{id: doctor_id} | _]} = doctors_list(client)
+        {:ok, %{data: [%Doctor{id: doctor_id} | _]}} = doctors_list(client)
 
         params = %{
           color: "#7B7B7B",

@@ -4,7 +4,7 @@ defmodule Chroner.V4.Clinical.PatientsTest do
   describe "patients_create/2" do
     test "creates new patient", %{valid_client: client} do
       use_cassette "patients_create_success" do
-        {:ok, [%Doctor{id: doctor_id} | _]} = doctors_list(client)
+        {:ok, %{data: [%Doctor{id: doctor_id} | _]}} = doctors_list(client)
 
         params = %{
           doctor: doctor_id,
@@ -46,7 +46,7 @@ defmodule Chroner.V4.Clinical.PatientsTest do
   describe "patients_delete/2" do
     test "deletes new patient", %{valid_client: client} do
       use_cassette "patients_delete_success" do
-        {:ok, [%Patient{id: id} | _]} = patients_list(client)
+        {:ok, %{data: [%Patient{id: id} | _]}} = patients_list(client)
 
         assert :ok = patients_delete(client, id)
         assert {:error, %Response{status_code: 404}} = patients_read(client, id)
@@ -70,14 +70,16 @@ defmodule Chroner.V4.Clinical.PatientsTest do
     test "gets all patients with filters", %{valid_client: client} do
       use_cassette "patients_list_success", match_requests_on: [:query] do
         assert {:ok,
-                [
-                  %Patient{last_name: "Test"},
-                  %Patient{last_name: "Test"},
-                  %Patient{last_name: "Test"},
-                  %Patient{last_name: "Test"}
-                ]} = patients_list(client, %{last_name: "test"})
+                %{
+                  data: [
+                    %Patient{last_name: "Test"},
+                    %Patient{last_name: "Test"},
+                    %Patient{last_name: "Test"},
+                    %Patient{last_name: "Test"}
+                  ]
+                }} = patients_list(client, %{last_name: "test"})
 
-        assert {:ok, [%Patient{first_name: "Chris"}, %Patient{first_name: "Chrissy"}]} =
+        assert {:ok, %{data: [%Patient{first_name: "Chris"}, %Patient{first_name: "Chrissy"}]}} =
                  patients_list(client, %{first_name: "chris"})
       end
     end
@@ -92,7 +94,7 @@ defmodule Chroner.V4.Clinical.PatientsTest do
   describe "patients_read/2" do
     test "gets existing user by id", %{valid_client: client} do
       use_cassette "patients_read_success" do
-        {:ok, [%Patient{id: id} | _]} = patients_list(client)
+        {:ok, %{data: [%Patient{id: id} | _]}} = patients_list(client)
         assert {:ok, %Patient{id: ^id}} = patients_read(client, id)
       end
     end
@@ -105,7 +107,7 @@ defmodule Chroner.V4.Clinical.PatientsTest do
 
     test "fails due to auth", %{valid_client: valid_client, invalid_client: invalid_client} do
       use_cassette "patients_read_401_error" do
-        {:ok, [%Patient{id: id} | _]} = patients_list(valid_client)
+        {:ok, %{data: [%Patient{id: id} | _]}} = patients_list(valid_client)
         assert {:error, %Response{status_code: 401}} = patients_read(invalid_client, id)
       end
     end
@@ -114,8 +116,12 @@ defmodule Chroner.V4.Clinical.PatientsTest do
   describe "patients_update/3" do
     test "updates existing patient", %{valid_client: client} do
       use_cassette "patients_update_success" do
-        {:ok, [%Patient{first_name: old_first_name, doctor: doctor, gender: gender, id: id} | _]} =
-          patients_list(client)
+        {:ok,
+         %{
+           data: [
+             %Patient{first_name: old_first_name, doctor: doctor, gender: gender, id: id} | _
+           ]
+         }} = patients_list(client)
 
         params = %{doctor: doctor, first_name: "Updated", gender: gender}
 
@@ -128,7 +134,7 @@ defmodule Chroner.V4.Clinical.PatientsTest do
 
     test "fails with incomplete params", %{valid_client: client} do
       use_cassette "patients_update_400_error" do
-        {:ok, [%Patient{id: id} | _]} = patients_list(client)
+        {:ok, %{data: [%Patient{id: id} | _]}} = patients_list(client)
 
         assert {:error,
                 %Response{

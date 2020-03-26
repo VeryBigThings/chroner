@@ -8,7 +8,7 @@ defmodule Chroner.V4.AdministrativeTest do
   describe "doctors_list/1" do
     test "gets all doctors", %{valid_client: client} do
       use_cassette "doctors_list_success" do
-        assert {:ok, [%Doctor{} | _]} = doctors_list(client)
+        assert {:ok, %{data: [%Doctor{} | _]}} = doctors_list(client)
       end
     end
 
@@ -22,7 +22,7 @@ defmodule Chroner.V4.AdministrativeTest do
   describe "doctors_read/2" do
     test "gets existing user by id", %{valid_client: client} do
       use_cassette "doctors_read_success" do
-        {:ok, [%Doctor{id: id} | _]} = doctors_list(client)
+        {:ok, %{data: [%Doctor{id: id} | _]}} = doctors_list(client)
         assert {:ok, %Doctor{id: ^id}} = doctors_read(client, id)
       end
     end
@@ -35,7 +35,7 @@ defmodule Chroner.V4.AdministrativeTest do
 
     test "fails due to auth", %{valid_client: valid_client, invalid_client: invalid_client} do
       use_cassette "doctors_read_401_error" do
-        {:ok, [%Doctor{id: id} | _]} = doctors_list(valid_client)
+        {:ok, %{data: [%Doctor{id: id} | _]}} = doctors_list(valid_client)
         assert {:error, %Response{status_code: 401}} = doctors_read(invalid_client, id)
       end
     end
@@ -62,7 +62,7 @@ defmodule Chroner.V4.AdministrativeTest do
   describe "users_list/1" do
     test "gets all users", %{valid_client: client} do
       use_cassette "users_list_success" do
-        assert {:ok, [%User{} | _]} = users_list(client)
+        assert {:ok, %{data: [%User{} | _]}} = users_list(client)
       end
     end
 
@@ -102,7 +102,7 @@ defmodule Chroner.V4.AdministrativeTest do
   describe "user_groups_list/1" do
     test "gets all user_groups", %{valid_client: client} do
       use_cassette "user_groups_list_success" do
-        assert {:ok, []} = user_groups_list(client)
+        assert {:ok, %{data: []}} = user_groups_list(client)
       end
     end
 

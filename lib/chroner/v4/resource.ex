@@ -5,6 +5,7 @@ defmodule Chroner.V4.Resource do
 
   @type client :: Client.t()
   @type success :: {:ok, struct()}
+  @type list_success :: {:ok, %{next: String.t(), data: [struct()] | [], previous: String.t()}}
   @type error :: {:error, OAuth2.Response.t()}
 
   # --------------------------------------------------------------------
@@ -37,11 +38,15 @@ defmodule Chroner.V4.Resource do
          do: :ok
   end
 
-  @spec list(client, module(), map()) :: {:ok, [struct()] | []} | error
+  @spec list(client, module(), map()) :: list_success | error
   def list(client, module, params \\ %{}) do
-    with {:ok, %Response{body: %{"results" => data}, status_code: 200}} <-
+    with {:ok,
+          %Response{
+            body: %{"results" => data, "next" => next, "previous" => previous},
+            status_code: 200
+          }} <-
            Client.get(client, "/#{module.plural()}", [], params: params),
-         do: {:ok, cast_resource(module, data)}
+         do: {:ok, %{data: cast_resource(module, data), next: next, previous: previous}}
   end
 
   @spec partial_update(client, integer(), map(), module()) ::
