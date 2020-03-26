@@ -4,16 +4,16 @@ defmodule Chroner.V4.Clinical.Customs.CustomField do
   use Chroner.Schema
 
   @type t :: %__MODULE__{
-          created_at: String.t(),
+          created_at: DateTime.t(),
           field_type: integer(),
           field_value: String.t(),
-          updated_at: String.t()
+          updated_at: DateTime.t()
         }
 
   embedded_schema do
-    field :created_at, :string
+    field :created_at, :naive_datetime
     field :field_type, :integer
     field :field_value, :string
-    field :updated_at, :string
+    field :updated_at, :naive_datetime
   end
 end

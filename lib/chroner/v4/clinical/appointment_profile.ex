@@ -9,6 +9,17 @@ defmodule Chroner.V4.Clinical.AppointmentProfile do
           optional(:page_size) => integer()
         }
 
+  @type partial_update_params :: %{
+          optional(:archived) => boolean(),
+          optional(:color) => String.t(),
+          optional(:doctor) => integer(),
+          optional(:duration) => integer(),
+          optional(:name) => String.t(),
+          optional(:reason) => String.t(),
+          optional(:online_scheduling) => boolean(),
+          optional(:sort_order) => integer()
+        }
+
   @type upsert_params :: %{
           optional(:archived) => boolean(),
           required(:color) => String.t(),

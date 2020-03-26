@@ -54,7 +54,7 @@ defmodule Chroner.V4.Clinical.Patient do
           city: String.t(),
           copay: String.t(),
           custom_demographics: list(CustomDemographic.t()),
-          date_of_birth: String.t(),
+          date_of_birth: Date.t(),
           date_of_first_appointment: String.t(),
           date_of_last_appointment: String.t(),
           default_pharmacy: String.t(),
@@ -99,7 +99,7 @@ defmodule Chroner.V4.Clinical.Patient do
           social_security_number: String.t(),
           state: String.t(),
           tertiary_insurance: Insurance.t(),
-          updated_at: String.t(),
+          updated_at: DateTime.t(),
           workers_comp_insurance: WorkerCompInsurance.t(),
           zip_code: String.t()
         }
@@ -112,7 +112,7 @@ defmodule Chroner.V4.Clinical.Patient do
           optional(:city) => String.t(),
           optional(:copay) => String.t(),
           optional(:custom_demographics) => list(CustomDemographic.upsert_params()),
-          optional(:date_of_birth) => String.t(),
+          optional(:date_of_birth) => Date.t(),
           optional(:date_of_first_appointment) => String.t(),
           optional(:date_of_last_appointment) => String.t(),
           optional(:default_pharmacy) => String.t(),
@@ -137,7 +137,7 @@ defmodule Chroner.V4.Clinical.Patient do
           optional(:office_phone) => String.t(),
           optional(:patient_flags_attached) => list(PatientFlagAttached.upsert_params()),
           optional(:patient_payment_profile) => patient_payment_profile(),
-          optional(:patient_photo_date) => String.t(),
+          optional(:patient_photo_date) => Date.t() | nil,
           optional(:patient_photo) => String.t(),
           optional(:patient_status) => patient_status(),
           optional(:preferred_language) => String.t(),
@@ -166,7 +166,7 @@ defmodule Chroner.V4.Clinical.Patient do
     field :city, :string
     field :copay, :string
     embeds_many :custom_demographics, CustomDemographic
-    field :date_of_birth, :string
+    field :date_of_birth, :date
     field :date_of_first_appointment, :string
     field :date_of_last_appointment, :string
     field :default_pharmacy, :string
@@ -194,7 +194,7 @@ defmodule Chroner.V4.Clinical.Patient do
     embeds_many :patient_flags_attached, PatientFlagAttached
     embeds_many :patient_flags, PatientFlag
     field :patient_payment_profile, :string
-    field :patient_photo_date, :string
+    field :patient_photo_date, :date
     field :patient_photo, :string
     field :patient_status, :string
     field :preferred_language, :string
@@ -211,7 +211,7 @@ defmodule Chroner.V4.Clinical.Patient do
     field :social_security_number, :string
     field :state, :string
     embeds_one :tertiary_insurance, Insurance
-    field :updated_at, :string
+    field :updated_at, :naive_datetime
     embeds_one :workers_comp_insurance, WorkerCompInsurance
     field :zip_code, :string
   end

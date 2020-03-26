@@ -5,13 +5,13 @@ defmodule Chroner.V4.Clinical.Reminder do
 
   @type t :: %__MODULE__{
           id: integer(),
-          scheduled_time: String.t(),
+          scheduled_time: DateTime.t(),
           type: :email | :sms | :auto_call
         }
 
   embedded_schema do
     field :id, :integer
-    field :scheduled_time, :string
+    field :scheduled_time, :naive_datetime
     field :type, :string
   end
 end

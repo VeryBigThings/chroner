@@ -13,7 +13,7 @@ defmodule Chroner.V4.Resource do
 
   @spec create(client, map(), module()) :: success | error
   def create(client, params, module) do
-    with {:ok, %Response{body: data}} <-
+    with {:ok, %Response{body: data, status_code: 201}} <-
            Client.post(
              client,
              "/#{module.plural()}",
@@ -25,7 +25,7 @@ defmodule Chroner.V4.Resource do
 
   @spec current(client, module()) :: success | error
   def current(client, module) do
-    with {:ok, %Response{body: data}} <-
+    with {:ok, %Response{body: data, status_code: 200}} <-
            Client.get(client, "/#{module.plural()}/current"),
          do: {:ok, cast_resource(module, data)}
   end
@@ -39,7 +39,7 @@ defmodule Chroner.V4.Resource do
 
   @spec list(client, module(), map()) :: {:ok, [struct()] | []} | error
   def list(client, module, params \\ %{}) do
-    with {:ok, %Response{body: %{"results" => data}}} <-
+    with {:ok, %Response{body: %{"results" => data}, status_code: 200}} <-
            Client.get(client, "/#{module.plural()}", [], params: params),
          do: {:ok, cast_resource(module, data)}
   end
@@ -47,19 +47,19 @@ defmodule Chroner.V4.Resource do
   @spec partial_update(client, integer(), map(), module()) ::
           success | error
   def partial_update(client, id, params, module) do
-    with {:ok, %Response{body: data}} <-
+    with {:ok, %Response{status_code: 204}} <-
            Client.patch(
              client,
              "/#{module.plural()}/#{id}",
              params,
              upsert_headers()
            ),
-         do: {:ok, cast_resource(module, data)}
+         do: :ok
   end
 
   @spec read(client, integer(), module()) :: success | error
   def read(client, id, module) do
-    with {:ok, %Response{body: data}} <-
+    with {:ok, %Response{body: data, status_code: 200}} <-
            Client.get(client, "/#{module.plural()}/#{id}"),
          do: {:ok, cast_resource(module, data)}
   end

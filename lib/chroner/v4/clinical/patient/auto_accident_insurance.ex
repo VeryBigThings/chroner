@@ -57,9 +57,9 @@ defmodule Chroner.V4.Clinical.Patient.AutoAccidentInsurance do
           auto_accident_claim_rep_state: String.t(),
           auto_accident_claim_rep_zip: String.t(),
           auto_accident_company: String.t(),
-          auto_accident_date_of_accident: String.t(),
-          auto_accident_disabled_from_date: String.t(),
-          auto_accident_disabled_to_date: String.t(),
+          auto_accident_date_of_accident: DateTime.t(),
+          auto_accident_disabled_from_date: DateTime.t(),
+          auto_accident_disabled_to_date: DateTime.t(),
           auto_accident_had_similar_condition: boolean(),
           auto_accident_is_subscriber_the_patient: boolean(),
           auto_accident_notes: String.t(),
@@ -70,16 +70,16 @@ defmodule Chroner.V4.Clinical.Patient.AutoAccidentInsurance do
           auto_accident_payer_state: String.t(),
           auto_accident_payer_zip: String.t(),
           auto_accident_policy_number: String.t(),
-          auto_accident_return_to_work_date: String.t(),
+          auto_accident_return_to_work_date: DateTime.t(),
           auto_accident_significant_injury_notes: String.t(),
           auto_accident_significant_injury: String.t(),
-          auto_accident_similar_condition_date: String.t(),
+          auto_accident_similar_condition_date: DateTime.t(),
           auto_accident_similar_condition_notes: String.t(),
           auto_accident_state_of_occurrence: String.t(),
           auto_accident_still_under_care: boolean(),
           auto_accident_subscriber_address: String.t(),
           auto_accident_subscriber_city: String.t(),
-          auto_accident_subscriber_date_of_birth: String.t(),
+          auto_accident_subscriber_date_of_birth: DateTime.t(),
           auto_accident_subscriber_first_name: String.t(),
           auto_accident_subscriber_last_name: String.t(),
           auto_accident_subscriber_middle_name: String.t(),
@@ -102,9 +102,9 @@ defmodule Chroner.V4.Clinical.Patient.AutoAccidentInsurance do
     field :auto_accident_claim_rep_state, :string
     field :auto_accident_claim_rep_zip, :string
     field :auto_accident_company, :string
-    field :auto_accident_date_of_accident, :string
-    field :auto_accident_disabled_from_date, :string
-    field :auto_accident_disabled_to_date, :string
+    field :auto_accident_date_of_accident, :naive_datetime
+    field :auto_accident_disabled_from_date, :naive_datetime
+    field :auto_accident_disabled_to_date, :naive_datetime
     field :auto_accident_had_similar_condition, :boolean
     field :auto_accident_is_subscriber_the_patient, :boolean
     field :auto_accident_notes, :string
@@ -115,10 +115,10 @@ defmodule Chroner.V4.Clinical.Patient.AutoAccidentInsurance do
     field :auto_accident_payer_state, :string
     field :auto_accident_payer_zip, :string
     field :auto_accident_policy_number, :string
-    field :auto_accident_return_to_work_date, :string
+    field :auto_accident_return_to_work_date, :naive_datetime
     field :auto_accident_significant_injury_notes, :string
     field :auto_accident_significant_injury, :string
-    field :auto_accident_similar_condition_date, :string
+    field :auto_accident_similar_condition_date, :naive_datetime
     field :auto_accident_similar_condition_notes, :string
     field :auto_accident_state_of_occurrence, :string
     field :auto_accident_still_under_care, :boolean

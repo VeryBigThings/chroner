@@ -10,13 +10,13 @@ defmodule Chroner.V4.Clinical.Customs.CustomDemographic do
 
   @type t :: %__MODULE__{
           field_type: integer(),
-          updated_at: String.t(),
+          updated_at: DateTime.t(),
           value: String.t()
         }
 
   embedded_schema do
     field :field_type, :integer
-    field :updated_at, :string
+    field :updated_at, :naive_datetime
     field :value, :string
   end
 end

@@ -24,7 +24,7 @@ defmodule Chroner.V4.Clinical.Patient.WorkerCompInsurance do
 
   @type t :: %__MODULE__{
           property_and_casualty_agency_claim_number: String.t(),
-          workers_comp_carrier_code: String.t(),
+          workers_comp_carrier_code: Date.t(),
           workers_comp_case_number: String.t(),
           workers_comp_company: String.t(),
           workers_comp_date_of_accident: String.t(),
@@ -46,7 +46,7 @@ defmodule Chroner.V4.Clinical.Patient.WorkerCompInsurance do
     field :workers_comp_carrier_code, :string
     field :workers_comp_case_number, :string
     field :workers_comp_company, :string
-    field :workers_comp_date_of_accident, :string
+    field :workers_comp_date_of_accident, :date
     field :workers_comp_group_name, :string
     field :workers_comp_group_number, :string
     field :workers_comp_notes, :string

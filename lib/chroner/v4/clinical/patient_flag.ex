@@ -6,22 +6,22 @@ defmodule Chroner.V4.Clinical.PatientFlag do
   @type t :: %__MODULE__{
           archived: boolean(),
           color: String.t(),
-          created_at: String.t(),
+          created_at: DateTime.t(),
           doctor: integer(),
           id: integer(),
           name: String.t(),
           priority: integer(),
-          updated_at: String.t()
+          updated_at: DateTime.t()
         }
 
   embedded_schema do
     field :archived, :boolean
     field :color, :string
-    field :created_at, :string
+    field :created_at, :naive_datetime
     field :doctor, :integer
     field :id, :integer
     field :name, :string
     field :priority, :integer
-    field :updated_at, :string
+    field :updated_at, :naive_datetime
   end
 end

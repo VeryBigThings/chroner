@@ -6,12 +6,12 @@ defmodule Chroner.V4.Clinical.ClinicalNote do
   @type t :: %__MODULE__{
           locked: boolean(),
           pdf: String.t(),
-          updated_at: String.t()
+          updated_at: DateTime.t()
         }
 
   embedded_schema do
     field :locked, :boolean
     field :pdf, :string
-    field :updated_at, :string
+    field :updated_at, :naive_datetime
   end
 end

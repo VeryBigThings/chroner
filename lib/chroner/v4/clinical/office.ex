@@ -11,13 +11,18 @@ defmodule Chroner.V4.Clinical.Office do
           optional(:page_size) => integer()
         }
 
+  @type partial_update_params :: %{
+          optional(:online_scheduling) => String.t(),
+          optional(:online_timeslots) => [OnlineTimeslot.upsert_params()]
+        }
+
   @type t :: %__MODULE__{
           address: String.t(),
           archived: boolean(),
           city: String.t(),
           country: String.t(),
           doctor: integer(),
-          end_time: String.t(),
+          end_time: Time.t(),
           exam_rooms: [ExamRoom.t()],
           fax_number: String.t(),
           id: integer(),
@@ -25,7 +30,7 @@ defmodule Chroner.V4.Clinical.Office do
           online_scheduling: boolean(),
           online_timeslots: [OnlineTimeslot],
           phone_number: String.t(),
-          start_time: String.t(),
+          start_time: Time.t(),
           state: String.t(),
           zip_code: String.t()
         }
@@ -53,4 +58,6 @@ defmodule Chroner.V4.Clinical.Office do
     field :state, :string
     field :zip_code, :string
   end
+
+  def plural, do: "offices"
 end

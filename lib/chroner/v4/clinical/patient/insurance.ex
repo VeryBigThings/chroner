@@ -48,7 +48,7 @@ defmodule Chroner.V4.Clinical.Patient.Insurance do
           subscriber_address: String.t(),
           subscriber_city: String.t(),
           subscriber_country: String.t(),
-          subscriber_date_of_birth: String.t(),
+          subscriber_date_of_birth: DateTime.t(),
           subscriber_first_name: String.t(),
           subscriber_gender: gender(),
           subscriber_last_name: String.t(),
@@ -75,7 +75,7 @@ defmodule Chroner.V4.Clinical.Patient.Insurance do
     field :subscriber_address, :string
     field :subscriber_city, :string
     field :subscriber_country, :string
-    field :subscriber_date_of_birth, :string
+    field :subscriber_date_of_birth, :naive_datetime
     field :subscriber_first_name, :string
     field :subscriber_gender, :string
     field :subscriber_last_name, :string

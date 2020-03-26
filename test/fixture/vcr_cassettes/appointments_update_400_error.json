@@ -1,0 +1,85 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "accept": "application/json",
+        "authorization": "***"
+      },
+      "method": "get",
+      "options": {
+        "follow_redirect": "true",
+        "params": {
+          "date": "2020-03-30"
+        }
+      },
+      "request_body": "",
+      "url": "https://app.drchrono.com/api/appointments?date=2020-03-30"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"previous\":null,\"results\":[{\"allow_overlapping\":false,\"appt_is_break\":false,\"base_recurring_appointment\":null,\"billing_status\":\"\",\"billing_provider\":null,\"billing_notes\":[],\"cloned_from\":null,\"color\":null,\"created_at\":\"2020-03-26T13:58:21\",\"deleted_flag\":false,\"doctor\":257817,\"duration\":123,\"exam_room\":1,\"first_billed_date\":\"2020-03-30T12:00:00\",\"icd9_codes\":[],\"icd10_codes\":[],\"id\":\"143422207\",\"ins1_status\":\"\",\"ins2_status\":\"\",\"is_walk_in\":false,\"is_virtual_base\":false,\"last_billed_date\":\"2020-03-30T12:00:00\",\"notes\":\"\",\"office\":274103,\"patient\":85753656,\"primary_insurer_payer_id\":\"\",\"primary_insurer_name\":\"\",\"primary_insurance_id_number\":\"\",\"profile\":null,\"reason\":\"New reason\",\"recurring_appointment\":false,\"secondary_insurer_payer_id\":\"\",\"secondary_insurer_name\":\"\",\"secondary_insurance_id_number\":\"\",\"scheduled_time\":\"2020-03-30T12:00:00\",\"status\":\"\",\"supervising_provider\":null,\"updated_at\":\"2020-03-26T15:51:45\"}],\"next\":null}",
+      "headers": {
+        "Date": "Thu, 26 Mar 2020 19:51:58 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "942",
+        "Connection": "keep-alive",
+        "Set-Cookie": "__cfduid=d626fe19168db19d0ded5b7c4ee0d6d931585252318; expires=Sat, 25-Apr-20 19:51:58 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
+        "x-xss-protection": "1; mode=block",
+        "x-content-type-options": "nosniff",
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "Vary": "User-Agent, Authorization, Cookie",
+        "Allow": "GET, POST, HEAD, OPTIONS",
+        "Cache-Control": "no-cache",
+        "X-Frame-Options": "SAMEORIGIN",
+        "Accept-Ranges": "bytes",
+        "CF-Cache-Status": "DYNAMIC",
+        "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+        "Server": "cloudflare",
+        "CF-RAY": "57a368ce88b2fc5d-ZAG"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "authorization": "***",
+        "content-type": "application/x-www-form-urlencoded",
+        "accept": "application/json"
+      },
+      "method": "put",
+      "options": {
+        "follow_redirect": "true"
+      },
+      "request_body": "",
+      "url": "https://app.drchrono.com/api/appointments/143422207"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"exam_room\":[\"This field is required.\"],\"scheduled_time\":[\"This field is required.\"],\"patient\":[\"This field is required.\"],\"office\":[\"This field is required.\"],\"doctor\":[\"This field is required.\"]}",
+      "headers": {
+        "Date": "Thu, 26 Mar 2020 19:51:59 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "198",
+        "Connection": "keep-alive",
+        "Set-Cookie": "__cfduid=d56263c33e79be2a2b9ef23f62f3544ad1585252319; expires=Sat, 25-Apr-20 19:51:59 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
+        "x-xss-protection": "1; mode=block",
+        "x-content-type-options": "nosniff",
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "Vary": "User-Agent, Authorization, Cookie",
+        "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
+        "Cache-Control": "no-cache",
+        "X-Frame-Options": "SAMEORIGIN",
+        "CF-Cache-Status": "DYNAMIC",
+        "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+        "Server": "cloudflare",
+        "CF-RAY": "57a368d1fe14fc5d-ZAG"
+      },
+      "status_code": 400,
+      "type": "ok"
+    }
+  }
+]

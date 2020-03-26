@@ -15,7 +15,16 @@ defmodule Chroner.Support.APICase do
       import unquote(Module.concat(Chroner, api_version)).{Administrative, Clinical}
 
       alias unquote(Module.concat(Chroner, api_version)).Administrative.{Doctor, User}
-      alias unquote(Module.concat(Chroner, api_version)).Clinical.{AppointmentProfile, Patient}
+
+      alias unquote(Module.concat(Chroner, api_version)).Clinical.{
+        Appointment,
+        AppointmentProfile,
+        Patient,
+        Office
+      }
+
+      alias unquote(Module.concat(Chroner, api_version)).Clinical.Office.{ExamRoom}
+
       alias OAuth2.Response
     end
   end

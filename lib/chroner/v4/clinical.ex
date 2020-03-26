@@ -30,10 +30,11 @@ defmodule Chroner.V4.Clinical do
   @doc "Fetches all appointment resources."
   @spec appointments_list(client, Appointment.list_params() | %{}) ::
           {:ok, [Appointment.t()] | []} | error
-  def appointments_list(client, filters \\ %{}), do: list(client, Appointment, filters)
+  def appointments_list(client, params), do: list(client, Appointment, params)
 
   @doc "Partialky updates existing appointment resource by ID and params."
-  @spec appointments_partial_update(client, id, Appointment.upsert_params()) :: :ok | error
+  @spec appointments_partial_update(client, id, Appointment.partial_update_params()) ::
+          :ok | error
   def appointments_partial_update(client, id, params),
     do: partial_update(client, id, params, Appointment)
 
@@ -62,14 +63,14 @@ defmodule Chroner.V4.Clinical do
   @doc "Fetches all appointment_profile resources."
   @spec appointment_profiles_list(client, AppointmentProfile.list_params() | %{}) ::
           {:ok, [AppointmentProfile.t()] | []} | error
-  def appointment_profiles_list(client, filters \\ %{}),
-    do: list(client, AppointmentProfile, filters)
+  def appointment_profiles_list(client, params \\ %{}),
+    do: list(client, AppointmentProfile, params)
 
   @doc "Partially updates existing appointment_profile resource by ID and params."
   @spec appointment_profiles_partial_update(
           client,
           id,
-          AppointmentProfile.upsert_params()
+          AppointmentProfile.partial_update_params()
         ) ::
           {:ok, AppointmentProfile.t()} | error
   def appointment_profiles_partial_update(client, id, params),
@@ -115,7 +116,7 @@ defmodule Chroner.V4.Clinical do
 
   @doc "Fetches all patient resources."
   @spec patients_list(client, Patient.list_params() | %{}) :: {:ok, [Patient.t()] | []} | error
-  def patients_list(client, filters \\ %{}), do: list(client, Patient, filters)
+  def patients_list(client, params \\ %{}), do: list(client, Patient, params)
 
   @doc "Fetches patient resource by ID."
   @spec patients_read(client, id) :: {:ok, Patient.t()} | error
@@ -143,8 +144,9 @@ defmodule Chroner.V4.Clinical do
   # --------------------------------------------------------------------
 
   @doc "Add an exam room to the office."
-  @spec add_exam_room(client, integer(), ExamRoom.upsert_params()) :: {:ok, Office.t()} | error
-  def add_exam_room(client, id, params) do
+  @spec offices_add_exam_room(client, integer(), ExamRoom.upsert_params()) ::
+          {:ok, Office.t()} | error
+  def offices_add_exam_room(client, id, params) do
     with {:ok, %Response{body: data}} <-
            Client.post(
              client,
@@ -157,17 +159,13 @@ defmodule Chroner.V4.Clinical do
 
   @doc "Fetches all office resources."
   @spec offices_list(client, Office.list_params() | %{}) :: {:ok, [Office.t()] | []} | error
-  def offices_list(client, filters \\ %{}), do: list(client, Office, filters)
+  def offices_list(client, params \\ %{}), do: list(client, Office, params)
 
   @doc "Partially updates existing office resource by ID and params."
-  @spec offices_partial_update(client, id, Office.upsert_params()) :: :ok | error
+  @spec offices_partial_update(client, id, Office.partial_update_params()) :: :ok | error
   def offices_partial_update(client, id, params), do: partial_update(client, id, params, Office)
 
   @doc "Fetches office resource by ID."
   @spec offices_read(client, id) :: {:ok, Office.t()} | error
   def offices_read(client, id), do: read(client, id, Office)
-
-  @doc "Updates existing office resource by ID and params."
-  @spec offices_update(client, id, Office.upsert_params()) :: :ok | error
-  def offices_update(client, id, params), do: update(client, id, params, Office)
 end

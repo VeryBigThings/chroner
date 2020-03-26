@@ -4,13 +4,13 @@ defmodule Chroner.V4.Clinical.BillingNote do
   use Chroner.Schema
 
   @type t :: %__MODULE__{
-          created_at: String.t(),
+          created_at: DateTime.t(),
           created_by: integer(),
           text: String.t()
         }
 
   embedded_schema do
-    field :created_at, :string
+    field :created_at, :naive_datetime
     field :created_by, :integer
     field :text, :string
   end
