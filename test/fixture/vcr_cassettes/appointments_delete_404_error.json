@@ -1,0 +1,41 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "accept": "application/json",
+        "authorization": "***"
+      },
+      "method": "delete",
+      "options": {
+        "follow_redirect": "true"
+      },
+      "request_body": "",
+      "url": "https://app.drchrono.com/api/appointments/0"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"detail\":\"Not found.\"}",
+      "headers": {
+        "Date": "Thu, 26 Mar 2020 20:55:10 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "23",
+        "Connection": "keep-alive",
+        "Set-Cookie": "__cfduid=d6f8956203fc59e6eb247b1b25316470b1585256110; expires=Sat, 25-Apr-20 20:55:10 GMT; path=/; domain=.drchrono.com; HttpOnly; SameSite=Lax; Secure",
+        "x-xss-protection": "1; mode=block",
+        "x-content-type-options": "nosniff",
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "Vary": "User-Agent, Authorization, Cookie",
+        "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
+        "Cache-Control": "no-cache",
+        "X-Frame-Options": "SAMEORIGIN",
+        "CF-Cache-Status": "DYNAMIC",
+        "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+        "Server": "cloudflare",
+        "CF-RAY": "57a3c562cdc5fc75-ZAG"
+      },
+      "status_code": 404,
+      "type": "ok"
+    }
+  }
+]

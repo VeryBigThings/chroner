@@ -60,6 +60,30 @@ defmodule Chroner.V4.Clinical.AppointmentsTest do
     end
   end
 
+  describe "appointments_delete/2" do
+    test "deletes new patient", %{valid_client: client} do
+      use_cassette "appointments_delete_success" do
+        {:ok, %{data: [%Appointment{id: id} | _]}} =
+          appointments_list(client, %{date: "2020-03-30"})
+
+        assert :ok = appointments_delete(client, id)
+        assert {:error, %Response{status_code: 404}} = appointments_read(client, id)
+      end
+    end
+
+    test "fails with unexising id", %{valid_client: client} do
+      use_cassette "appointments_delete_404_error" do
+        assert {:error, %Response{status_code: 404}} = appointments_delete(client, 0)
+      end
+    end
+
+    test "fails due to auth", %{invalid_client: client} do
+      use_cassette "appointments_delete_401_error" do
+        assert {:error, %Response{status_code: 401}} = appointments_delete(client, 0)
+      end
+    end
+  end
+
   describe "appointments_list/2" do
     test "gets all appointments", %{valid_client: client} do
       use_cassette "appointments_list_success", match_requests_on: [:query] do
