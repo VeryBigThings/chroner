@@ -1,9 +1,9 @@
-defmodule Chroner.MixProject do
+defmodule Chronex.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :chroner,
+      app: :chronex,
       version: "0.1.0",
       elixir: "~> 1.10",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -12,10 +12,10 @@ defmodule Chroner.MixProject do
       dialyzer: dialyzer(),
 
       # Docs
-      name: "Chroner",
-      source_url: "https://github.com/verybigthings/chroner",
+      name: "Chronex",
+      source_url: "https://github.com/verybigthings/chronex",
       docs: [
-        main: "Chroner",
+        main: "Chronex",
         extras: ["README.md"]
       ]
     ]
