@@ -69,8 +69,13 @@ defmodule Chroner.V4.Clinical.PatientsTest do
   describe "patients_list/2" do
     test "gets all patients with filters", %{valid_client: client} do
       use_cassette "patients_list_success", match_requests_on: [:query] do
-        assert {:ok, [%Patient{last_name: "Test"}, %Patient{last_name: "Test"}]} =
-                 patients_list(client, %{last_name: "test"})
+        assert {:ok,
+                [
+                  %Patient{last_name: "Test"},
+                  %Patient{last_name: "Test"},
+                  %Patient{last_name: "Test"},
+                  %Patient{last_name: "Test"}
+                ]} = patients_list(client, %{last_name: "test"})
 
         assert {:ok, [%Patient{first_name: "Chris"}, %Patient{first_name: "Chrissy"}]} =
                  patients_list(client, %{first_name: "chris"})
