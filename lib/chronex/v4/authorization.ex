@@ -47,6 +47,12 @@ defmodule Chronex.V4.Authorization do
   def get_token!(client, params \\ %{}),
     do: Client.get_token!(client, params)
 
+  def refresh_token!(client) do
+    client
+    |> put_param(:client_secret, client.client_secret)
+    |> Client.refresh_token!()
+  end
+
   # --------------------------------------------------------------------
   # Strategy callbacks
   # --------------------------------------------------------------------
